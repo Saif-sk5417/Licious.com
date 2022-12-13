@@ -7,3 +7,4 @@
 - 👤 [Aarif Khan](https://github.com/AariF-ShazZ)
 - 👤 [Himanshu sharma](https://github.com/himanshu7582901182)
 
+# Day 1
