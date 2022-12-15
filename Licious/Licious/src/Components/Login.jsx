@@ -1,10 +1,11 @@
+import { Drawercomp } from "./Login/Drawer";
+import { ChakraProvider } from "@chakra-ui/react";
+const Login = () => {
+  return (
+    <ChakraProvider>
+      <Drawercomp />
+    </ChakraProvider>
+  );
+};
 
-
-
-const Login = () =>{
-    return (
-        <button>Login</button>
-    )
-}
-
-export { Login }
+export { Login };
