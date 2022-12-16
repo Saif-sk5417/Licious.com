@@ -3,7 +3,7 @@ import { Box,Text,Image, Input, Card } from "@chakra-ui/react"
 
 
 import React, { useState } from 'react'
-import Categories from "./Navbar/Categories"
+import {Categories} from "./Navbar/Categories"
 import Searchbar from "./Navbar/Searchbar"
 // import { Link } from 'react-router-dom'
 // import navMod from "./Navbar.module.css"
@@ -64,9 +64,9 @@ const Navbar = () => {
                        <Searchbar/>      
                     </Box>
                     <Box   w="8%" display={"flex"} alignItems="center" justifyContent={"space-between"}>
-                    <Image src="/Image/Navbar/category-dropdown-icon.svg" w="25px" h="25px"></Image>
-                    <Text fontSize={"12px"}>Categories</Text>
-                    {/* <Categories/> */}
+                    {/* <Image src="/Image/Navbar/category-dropdown-icon.svg" w="25px" h="25px"></Image>
+                    <Text fontSize={"12px"}>Categories</Text> */}
+                    <Categories/>
                     </Box>
                     <Box w="5%"  display={"flex"} alignItems="center" justifyContent={"space-between"}>
                     <Image src="/Image/Navbar/profile_icon.svg" w="25px" h="25px"></Image>
