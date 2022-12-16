@@ -1,11 +1,12 @@
 import { Box, Text, Image, Input, Card } from "@chakra-ui/react";
-
+import { Cart } from "../Components/Cart/Cart";
+import { ChakraProvider } from "@chakra-ui/react";
 import React, { useState } from "react";
 import Categories from "./Navbar/Categories";
 import Searchbar from "./Navbar/Searchbar";
 // import { Link } from 'react-router-dom'
 // import navMod from "./Navbar.module.css"
-import Cart from "./Navbar/Cart";
+
 import Profile from "./Navbar/Profile";
 import { Login } from "./Login";
 // import CartCounter from './Navbar/CartCounter'
@@ -205,9 +206,9 @@ const Navbar = () => {
             alignItems="center"
             justifyContent={"space-between"}
           >
-            <Image src="/Image/Navbar/cart_icon.svg" w="25px" h="25px"></Image>
-            {/* <Text>Cart</Text> */}
-            <Cart />
+            <ChakraProvider>
+              <Cart />
+            </ChakraProvider>
           </Box>
         </Box>
       </Box>
