@@ -64,8 +64,9 @@ export const Categories = () => {
           <Portal bg="blue">
             <PopoverContent>
               <Box
-                w="550px"
+                w="500px"
                 p="20px  2px 20px 15px"
+                bg="#fff"
                 boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px;"
                 display="flex"
               >

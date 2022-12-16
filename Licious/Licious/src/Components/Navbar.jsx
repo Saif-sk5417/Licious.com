@@ -8,7 +8,7 @@ import Searchbar from "./Navbar/Searchbar"
 // import { Link } from 'react-router-dom'
 // import navMod from "./Navbar.module.css"
 import Cart from './Navbar/Cart'
-import Profile from "./Navbar/Profile"
+
 // import CartCounter from './Navbar/CartCounter'
 // import Categories from './Navbar/Categories.jsx'
 // import Login from './Login'
@@ -64,20 +64,9 @@ const Navbar = () => {
                        <Searchbar/>      
                     </Box>
                     <Box   w="8%" display={"flex"} alignItems="center" justifyContent={"space-between"}>
-                    {/* <Image src="/Image/Navbar/category-dropdown-icon.svg" w="25px" h="25px"></Image>
-                    <Text fontSize={"12px"}>Categories</Text> */}
                     <Categories/>
                     </Box>
-                    <Box w="5%"  display={"flex"} alignItems="center" justifyContent={"space-between"}>
-                    <Image src="/Image/Navbar/profile_icon.svg" w="25px" h="25px"></Image>
-                    {/* <Text>Login</Text> */}
-                    <Profile/>
-                    </Box>
-                    <Box w="6%" display={"flex"} alignItems="center" justifyContent={"space-between"}>
-                    <Image src="/Image/Navbar/cart_icon.svg" w="25px" h="25px"></Image>
-                    {/* <Text>Cart</Text> */}
-                     <Cart/>
-                    </Box>
+                   
                 </Box>
             </Box>
 
