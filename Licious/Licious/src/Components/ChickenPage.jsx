@@ -19,7 +19,6 @@ const ChickenData = useSelector((store) => store.ChickenData)
 
     return (
    <div>
-    <Navbar />
        <div  className={styles.SingleCard_radio_Box}>
        <hr />
        <div className={styles.SingleCard_radio_Main}>

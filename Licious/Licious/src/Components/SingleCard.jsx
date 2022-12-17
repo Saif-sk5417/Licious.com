@@ -14,9 +14,9 @@ const SingleCard = ({Name,image,des_1,weights ,Price ,quantity}) =>{
     />
     <Stack mt='6' spacing='3'>
       <Heading size ='md' textAlign='left' fontSize={'18px'}>{Name}</Heading>
-      <Text  color='#727272'>{des_1}</Text>
-      <Text >{weights}</Text>
-      <Text color='red' fontSize='xl'> MRP : ₹{Price}</Text>
+      <Text  textAlign='left' color='#727272'>{des_1}</Text>
+      <Text  textAlign='left' >{weights}</Text>
+      <Text  textAlign='left' color='red' fontSize='xl'> MRP : ₹{Price}</Text>
     </Stack>
   </CardBody>
   <Divider />

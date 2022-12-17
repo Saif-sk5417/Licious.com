@@ -21,7 +21,7 @@ const HomePart1 = () => {
   return (
     <Box  bg="#F7F6F6" >
       <Box>
-        <Image src="https://d2407na1z3fc0t.cloudfront.net/Slider/banner_63630e9d6ba0e" />
+        <Image w='100%' src="https://d2407na1z3fc0t.cloudfront.net/Slider/banner_63630e9d6ba0e" />
       </Box>
       <Box mt="40px" w="35%" border="0px solid red">
         <Text
