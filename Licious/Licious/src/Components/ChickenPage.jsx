@@ -2,6 +2,7 @@ import { ChakraProvider } from "@chakra-ui/react"
 import { useEffect } from "react"
 import { BsTypeH1 } from "react-icons/bs"
 import { useDispatch, useSelector } from "react-redux"
+import { NavLink } from "react-router-dom"
 import Footer from "./Footer"
 import Navbar from "./Navbar"
 import { getChickenData } from "./Redux/action"
@@ -69,14 +70,16 @@ const ChickenData = useSelector((store) => store.ChickenData)
         </div>
        </div>            
        <div className={styles.SingleCard_Main}>
-         {ChickenData.map((el)=><ChakraProvider><SingleCard
+         {ChickenData.map((el)=><NavLink to = {`/Chicken/${el.id}`}><ChakraProvider>
+         <SingleCard
+         key = {el.id}
          Name = {el.Name}
          image = {el.Image}
          des_1 = {el.des_1}
          weights = {el.Weight}
          Price = {el.Price}
          quantity = {el.quantity}
-         /></ChakraProvider>)}
+         /></ChakraProvider></NavLink>)}
         </div>
        </div>
    </div>
