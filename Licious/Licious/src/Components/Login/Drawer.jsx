@@ -13,17 +13,34 @@ import {
   Avatar,
   Heading,
   Spacer,
+  Box,
 } from "@chakra-ui/react";
-
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function Drawercomp() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
 
   return (
     <>
-      <Button ref={btnRef} colorScheme="red" bg="#e4003e" onClick={onOpen}>
-        Login
-      </Button>
+      <Box>
+        <Button
+          ref={btnRef}
+          bg="white"
+          _hover={{ bg: "white" }}
+          leftIcon={
+            <Image
+              src="/Image/Navbar/profile_icon.svg"
+              w="25px"
+              h="25px"
+            ></Image>
+          }
+          onClick={onOpen}
+        >
+          Login
+        </Button>
+      </Box>
+
       <Drawer
         isOpen={isOpen}
         size="sm"
@@ -42,27 +59,22 @@ function Drawercomp() {
           </DrawerHeader>
 
           <DrawerBody>
-            {/* <Input borderColor="red" placeholder="Type here..." /> */}
+            <ToastContainer />
           </DrawerBody>
 
           <DrawerFooter
             backgroundColor="white"
+            justifyContent="center"
             bottomHeight="200px"
             w="90%"
             margin="auto"
             borderRadius="10px 10px 0 0"
-            justifyContent="center"
             display="block"
           >
-            {/* <Login /> */}
             <Avatar bg="#e4003e" />
             <Heading color="#e4003e">Welcome</Heading>
             <Spacer pt="40px" />
             <Swiper />
-            {/* <Button variant="outline" mr={3} onClick={onClose}>
-              Cancel
-            </Button>
-            <Button colorScheme="blue">Save</Button> */}
           </DrawerFooter>
         </DrawerContent>
       </Drawer>
