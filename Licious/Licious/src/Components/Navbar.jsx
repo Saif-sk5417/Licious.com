@@ -64,6 +64,7 @@ const Navbar = () => {
                        <Searchbar/>      
                     </Box>
                     <Box   w="8%" display={"flex"} alignItems="center" justifyContent={"space-between"}>
+
                     <Categories/>
                     </Box>
                    
