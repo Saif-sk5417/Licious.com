@@ -67,7 +67,7 @@ function Cart() {
       >
         {/* <DrawerOverlay border="solid red" w="50%" /> */}
         <DrawerContent>
-          <DrawerCloseButton color="white" size="lg" />
+          <DrawerCloseButton color="white" size="lg" bg="grey" />
           <DrawerHeader></DrawerHeader>
 
           <DrawerBody>

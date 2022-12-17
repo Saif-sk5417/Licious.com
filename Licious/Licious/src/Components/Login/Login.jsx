@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
+
 import {
   Flex,
   Input,
@@ -12,10 +14,6 @@ import {
   FormControl,
   FormHelperText,
   InputRightElement,
-  Alert,
-  AlertIcon,
-  AlertTitle,
-  AlertDescription,
 } from "@chakra-ui/react";
 import { FaUserAlt, FaLock } from "react-icons/fa";
 
@@ -29,13 +27,18 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const handleShowClick = () => setShowPassword(!showPassword);
   function handleSubmit(event) {
-    //alert("A name was submitted: " + this.state.value);
     event.preventDefault();
     if (email === "admin@gmail.com" && password === "admin") {
       setShowAlert(true);
+
+      toast.success("Login Success!");
+      setShowAlert("");
       //console.log(email, password);
     } else {
       setShowAlert(false);
+
+      toast.error("Login Failed!");
+      setShowAlert("");
     }
   }
 
