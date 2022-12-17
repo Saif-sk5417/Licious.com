@@ -81,3 +81,6 @@ const HomePageSlider2 =()=>{
 }
 
 export { HomePageSlider2 }
+
+
+

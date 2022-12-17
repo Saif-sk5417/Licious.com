@@ -105,3 +105,8 @@ const HomePart1 = () => {
 };
 
 export { HomePart1 };
+
+
+
+
+// Home page completed
