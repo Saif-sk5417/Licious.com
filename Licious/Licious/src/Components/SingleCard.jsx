@@ -23,7 +23,7 @@ const SingleCard = ({Name,image,des_1,weights ,Price ,quantity}) =>{
   <CardFooter>
     <ButtonGroup spacing='4'>
      <Button
-      variant='outline'  size='sm' colorScheme='blue'
+      variant='outline'  size='sm' colorScheme='red'
       >
      <AddIcon color='black' />
       </Button>
