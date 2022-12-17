@@ -1,14 +1,25 @@
-import "./Component.css";
-const Component = ({ srcs, names }) => {
+import {
+  Box,
+  Center,
+  Image,
+  SimpleGrid,
+  Text,
+} from "@chakra-ui/react";
+
+const Component = ({ item }) => {
   return (
-    <div className="flext">
-      {srcs.map((el, i) => (
-        <div>
-            <span className="img-div"><a href=""><img className="pro-img" src={srcs[i]} alt="img" /></a></span>
-            <span className="names">{names[i]}</span>
-        </div>
-      ))}
-    </div>
+    <SimpleGrid columns={4} columnGap={20} rowGap={50}>
+      {item.map((el) => {
+        return (
+          <Box  bg="white" borderRadius="10px" border="0px solid red" h="210px" cursor="pointer" >
+            <Image w="90%" _hover={{width:"380px"}} border="0px solid blue"  m="auto" src={el.images} />
+            <Center>
+              <Text fontWeight="bold" >{el.name}</Text>
+            </Center>
+          </Box>
+        );
+      })}
+    </SimpleGrid>
   );
 };
 

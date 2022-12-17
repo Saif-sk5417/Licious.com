@@ -14,12 +14,18 @@ import {
 import { FaApple, FaGooglePlay } from "react-icons/fa";
 import { BsInstagram } from "react-icons/bs";
 import { ImFacebook2, ImTwitter } from "react-icons/im";
+import { HomePageSlider2 } from "./HomePageSlider2";
 
 const Footer = () => {
   return (
     <Box>
-      <Box w="31%" mt="10px">
-        <Image h="60px" w="160px" src="/Image/HomePart22/licious-logo.svg" />
+    <Box w="35%" p="30px" border="0px solid red" >
+      <Text color="" fontSize="35px" fontWeight="bold" >In the News</Text>
+    </Box>
+          <HomePageSlider2 />
+
+      <Box w="33%"  mt="10px">
+        <Image h="60px" w="95%"  src="/Image/HomePart22/licious-logo.svg" />
       </Box>
       <Box w="78%" m="auto" display="flex">
         <Box
@@ -44,7 +50,7 @@ const Footer = () => {
                   color="#4a4a4a"
                   fontWeight="bold"
                   fontSize="14px"
-                  mt="18px"
+                  mt="3px"
                   fontFamily="Roboto, sans-serif"
                 >
                   USEFUL LINKS
@@ -117,6 +123,7 @@ const Footer = () => {
               alignItems="center"
               gap="20px"
               justifyContent="center"
+              mb="40px"
             >
               <Text color="#4a4a4a" fontWeight="bold" fontSize="16px">
                 KEEP IN TOUCH
@@ -158,9 +165,9 @@ const Footer = () => {
         </Box>
       </Box>
 
-      <Stack dir="column" display="flex" w="78%" m="auto">
+      <Stack dir="column" display="flex" w="80%" m="auto">
         <HStack>
-          <Text color="#4a4a4a" fontWeight="bold" fontSize="16px">
+          <Text color="#4a4a4a" fontWeight="bold" fontSize="15px">
             CITIES WE SERVE
           </Text>
           <Divider h="0.5px" bg="grey" w="88%" />
@@ -238,7 +245,7 @@ const Footer = () => {
           </HStack>
         </Stack>
         <HStack>
-          <Text color="#4a4a4a" fontWeight="bold" fontSize="16px">
+          <Text color="#4a4a4a" fontWeight="bold" fontSize="15px">
             POPULAR SEARCHES
           </Text>
           <Divider h="0.5px" bg="grey" w="85%" />
@@ -248,7 +255,7 @@ const Footer = () => {
             CHICKEN
           </Text>
         </HStack>
-        <HStack fontSize="15px" gap="6px">
+        <HStack fontSize="15px" gap="25px">
           <Text>Chicken Breast (Boneless)</Text>
           <Center height="35px">
             <Divider orientation="vertical" bg="grey" w="0.5px" />
@@ -500,7 +507,7 @@ const Footer = () => {
           </Text>
         </HStack>
         <HStack>
-          <Text textAlign="justify" mt={-10}>
+          <Text textAlign="justify">
             At Licious, we’re big meat-lovers. And by big, we mean huge. So when
             it comes to the meat we put on your plate, we’re extremely picky.
             Every single product is handpicked by a team with years of
@@ -509,12 +516,12 @@ const Footer = () => {
         </HStack>
 
         <HStack>
-          <Text color="#4a4a4a" fontWeight="bold" fontSize="16px" mt={-10}>
+          <Text color="#4a4a4a" fontWeight="bold" fontSize="16px">
             If it’s not fresh, we won’t sell it
           </Text>
         </HStack>
         <HStack>
-          <Text textAlign="justify" mt={-10}>
+          <Text textAlign="justify">
             For meat to stay fresh and retain its natural juices, it needs to be
             stored at a temperature between 0° and 5°C. We maintain this
             temperature from the time we procure the product to cleaning,
@@ -525,12 +532,12 @@ const Footer = () => {
         </HStack>
 
         <HStack>
-          <Text color="#4a4a4a" fontWeight="bold" fontSize="16px" mt={-10}>
+          <Text color="#4a4a4a" fontWeight="bold" fontSize="16px">
             We will charge only for what you buy
           </Text>
         </HStack>
         <HStack>
-          <Text textAlign="justify" mt={-10}>
+          <Text textAlign="justify" >
             Doesn’t everyone do this? Not really. Most other places first weigh
             the meat, then cut up the pieces, and throw out the parts which
             aren’t fit to eat, such as offal, gizzard, wingtips, etc. But you
@@ -540,7 +547,7 @@ const Footer = () => {
         </HStack>
         <Divider h="0.5px" bg="grey" w="100%" />
 
-        <Text color="#4a4a4a" fontWeight="bold" fontSize="16px">
+        <Text color="#4a4a4a" fontWeight="bold" justifyContent="center" fontSize="16px">
           {" "}
           @ 2022 Delightful Gourmet Pvt Ltd. All Rights Reserved.
         </Text>
