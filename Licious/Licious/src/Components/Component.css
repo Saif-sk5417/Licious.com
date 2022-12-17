@@ -1,8 +1,8 @@
-*, :after, :before {
+/* *, :after, :before {
   box-sizing: inherit;
 }
 .homepart-main-div{
-  /* background-color: #f7f6f6; */
+   background-color: #f7f6f6; 
 }
 .flext {
   display: grid;
@@ -16,18 +16,18 @@
   font-weight: bolder;
   display: block;
   margin: 10px;
-  /* margin-top:20px; */
+   margin-top:20px; 
 }
 .pro-img:hover{
   width: 100%;
 }
 
 .img-div{
-  /* box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px; */
+   box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px; 
   border-radius: .5rem;
   display: block;
   text-align: center;
-  /* background-color: beige; */
+   background-color: beige; 
   color: #3e4d60;
   font-size: 16px;
   font-weight: 700;
@@ -45,7 +45,7 @@
   height: 100px;
   border-radius: 1rem;
   margin:auto;
-  /* padding: .5rem 1rem; */
+ padding: .5rem 1rem; 
 }
 p{
   margin: 0px 0px 0px 15px;
@@ -74,4 +74,4 @@ p{
 .disc-div>img{
   margin: 10px auto;
   border-radius: .5rem;
-}
+} */

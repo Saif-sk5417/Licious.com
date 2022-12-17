@@ -1,0 +1,104 @@
+.HomPage_slider2_Main{
+    width: 90%;
+    margin: auto;
+    margin-top: -50px;
+}
+.HomPage_slider2_Child1{
+    padding: 30px 15px;
+    margin-top: 10%;
+ }
+.HomPage_slider2_Child1 img{
+    /* border: 1px solid red; */
+    width: 70%;
+    margin: auto;
+    padding: 40px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+ }
+.HomPage_slider2_Child2{
+    padding: 10px;
+    margin-top: 16%;
+    
+}
+.HomPage_slider2_Child2 img{
+    border: 1px solid orange;
+    width: 50%;
+    margin: auto;
+    padding: 17px 70px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.HomPage_slider2_Child3{
+    padding: 10px;
+    margin-top: 16%;
+    
+}
+.HomPage_slider2_Child3 img{
+    border: 1px solid brown;
+
+    width: 50%;
+    margin: auto;
+    padding: 12px 70px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.HomPage_slider2_Child4{
+    padding: 17px 20px ;
+    margin-top: 13%;
+ }
+.HomPage_slider2_Child4 img{
+    width: 70%;
+    /* border: 1px solid teal; */
+
+    margin: auto;
+    padding: 50px ;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+ }
+ .HomPage_slider2_Child5{
+    padding: 17px 20px ;
+    margin-top: 13%;
+ }
+.HomPage_slider2_Child5 img{
+    /* border: 1px solid pink; */
+
+    width: 70%;
+    margin: auto;
+    padding: 50px ;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+ }
+ .HomPage_slider2_Child6{
+    padding: 30px 15px;
+    margin-top: 10%;
+ }
+.HomPage_slider2_Child6 img{
+    /* border: 1px solid yellow; */
+
+    width: 70%;
+    margin: auto;
+    padding: 26px 40px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+ }
+ .HomPage_slider2_Child7{
+    padding: 30px 15px;
+    margin-left: 10px;
+    margin-top: 10%;
+ }
+.HomPage_slider2_Child7 img{
+    /* border: 1px solid blue; */
+
+    width: 60%;
+    margin: auto;
+    padding: 40px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+ }
+
+ .HomPage_slider2_Child8{
+    padding: 30px 15px;
+    margin-top: 10%;
+    /* border: 1px solid black; */
+ }
+.HomPage_slider2_Child8 img{
+    border: 1px solid black;
+
+    width: 70%;
+    margin: auto;
+    padding: 35px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+ }
