@@ -1,0 +1,42 @@
+
+
+.SingleProductPage_Main{
+    border: 1px solid black;
+    height: 500px;
+    width: 90%;
+    margin: auto;
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 20px;
+    padding: 30px;
+}
+
+.SingleProductPage_Box1{
+  
+    border-radius: 20px;
+ 
+}
+.SingleProductPage_Box1 img{
+  width: 100%;
+  border-radius: 20px;
+}
+
+.SingleProductPage_Box2{
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.SingleProductPage_Box22{
+    text-align:left;
+}
+.SingleProductPage_Box22_Price{
+    color: rgb(245, 9, 9);
+}
+.SingleProductPage_Box22_des{
+  line-height: 20px;
+  font-weight: 500;
+  text-align:justify ;
+  margin-top: 30px;
+  margin-left: -3px;
+}

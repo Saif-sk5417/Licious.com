@@ -1,0 +1,50 @@
+.SingleCard_Main{
+    width: 90%;
+    display: grid;
+    gap: 20px;
+    margin: auto;
+    margin-top: 70px;
+    margin-bottom: 100px;
+    grid-template-columns: repeat(3,1fr);
+}
+
+.SingleCard_radio_Main{
+    width :90%;
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+    gap: 20px;
+}
+.SingleCard_radio_Box{
+    margin: auto;
+    margin-top: 40px;
+}
+.SingleCard_radio_Box hr{
+    width: 90%;
+    margin: auto;
+    border-color: 0.3px  rgb(200, 198, 198);
+}
+.SingleCard_radio{
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: rgba(246, 22, 22, 0.455) 0px 0px 0px 1px;
+}
+.SingleCard_Select_box{
+   width: 25%;
+   display: flex;
+   margin-top: 20px;
+   margin-left: 4.5%;
+}
+.SingleCard_Select_Main{
+    width: 90%;
+    margin: auto;
+    margin-top: 10px;
+}
+.SingleCard_Select{
+    padding: 10px 20px ;
+    font-size: 18px;
+    border-radius: 5px;
+    box-shadow: rgba(246, 22, 22, 0.455) 0px 0px 0px 1px;
+}
