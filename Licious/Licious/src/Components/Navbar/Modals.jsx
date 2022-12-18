@@ -36,7 +36,7 @@ import {
                     <ModalHeader>Modal Title</ModalHeader>
                     <ModalCloseButton />
                     <ModalBody>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione harum quos temporibus laborum cum delectus. Velit sequi deleniti exercitationem officiis?
+                       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequuntur voluptatem alias libero placeat a nulla saepe totam beatae impedit. Corrupti quae rerum quo inventore, dolor qui atque consectetur architecto dolore consequatur, eum obcaecati asperiores repellat quasi ad autem eaque laborum tempore nulla cupiditate molestiae nostrum? Consequatur quo sint accusantium exercitationem perferendis non expedita accusamus explicabo sapiente amet reiciendis ipsam ipsum incidunt sequi repudiandae tempora inventore totam, debitis obcaecati dolor sunt aliquam dignissimos illo vero? Blanditiis officiis pariatur soluta, iusto quisquam quo. Ullam consequuntur laboriosam nisi adipisci rem non tenetur perferendis reprehenderit explicabo culpa. Eos quaerat exercitationem, eligendi voluptatibus perferendis ex aliquam dolor sapiente magnam amet voluptates quidem ducimus doloribus odit dolorem facere! Quis, asperiores sint temporibus vitae nemo et debitis vero, quasi rem magnam consequatur sed, incidunt voluptatem nostrum deleniti dolores adipisci numquam suscipit dolor optio vel. Quo sapiente odio ipsa consequatur, enim possimus voluptatibus nam hic ipsum, commodi atque.
                     </ModalBody>
 
                     <ModalFooter>
