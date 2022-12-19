@@ -14,7 +14,7 @@ const Component = ({ item }) => {
           <Box  bg="white" borderRadius="10px" border="0px solid red" h="210px" cursor="pointer" >
             <Image w="90%" _hover={{width:"380px"}} border="0px solid blue"  m="auto" src={el.images} />
             <Center>
-              <Text fontWeight="bold" >{el.name}</Text>
+              <Text fontWeight="normal" >{el.name}</Text>
             </Center>
           </Box>
         );

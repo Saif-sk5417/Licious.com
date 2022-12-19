@@ -7,7 +7,7 @@ import Slider from "react-slick";
        <div
          className={className}
          style={{ ...style,
-         padding : '15px 10px' ,
+         padding : '10px 30px 30px 10px' ,
          borderRadius:'30px',
          backgroundColor:'#c5c5cb',
          margin:'0px -25px 0px 0px'
@@ -23,7 +23,7 @@ import Slider from "react-slick";
        <div
          className={className}
          style={{ ...style,
-             padding : '15px 10px' ,
+             padding : '10px 30px 30px 10px' ,
              borderRadius:'30px',
              backgroundColor:'#c5c5cb',
          }}
@@ -56,7 +56,6 @@ const HomePageSlider2 =()=>{
           {/* <div className={styles.HomPage_slider2_Child3}>
           <img src="https://d2407na1z3fc0t.cloudfront.net/inTheNews/42/inthenews_62aae2a6d9bc4" alt="img8"/>
           </div> */}
-
           {/* <div className={styles.HomPage_slider2_Child2}>
           <img src="https://d2407na1z3fc0t.cloudfront.net/inTheNews/40/inthenews_62aae21e9a38e" alt="img8"/>
           </div> */}
@@ -75,6 +74,12 @@ const HomePageSlider2 =()=>{
           <div className={styles.HomPage_slider2_Child5}>
           <img src="https://d2407na1z3fc0t.cloudfront.net/inTheNews/43/inthenews_62aae2dadd8aa" alt="img8"/>
           </div >
+          <div className={styles.HomPage_slider2_Child1}>
+          <img src="https://d2407na1z3fc0t.cloudfront.net/inTheNews/35/inthenews_62aadde78bdae" alt="img5"/>
+          </div>
+          <div className={styles.HomPage_slider2_Child6}>
+          <img src="https://d2407na1z3fc0t.cloudfront.net/inTheNews/45/inthenews_62aae4c4d8331" alt="img8"/>
+          </div>
         </Slider>
       </div>
     )

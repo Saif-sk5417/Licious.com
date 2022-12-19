@@ -19,6 +19,7 @@ import {
 import { Chicken } from "./Categories/Chicken";
 import { Mutton } from "./Categories/Mutton";
 import { Fish } from "./Categories/Fish";
+import { NavLink } from "react-router-dom";
 
 const initialState = "Chicken";
 
@@ -55,7 +56,7 @@ export const Categories = () => {
               justifyContent="space-between"
             >
               <Image src="https://www.licious.in/img/rebranding/category-dropdown-icon.svg" />
-              <Button border="0px solid white" bg="none" color="#d11243">
+              <Button border="0px solid white" bg="none" fontWeight="normal" >
                 Categories
               </Button>
             </Box>
@@ -139,7 +140,7 @@ export const Categories = () => {
                     </Box>
                   </PopoverHeader>
                   <PopoverHeader>
-                    <Box
+                  <NavLink to ='/Chicken'> <Box
                       w="270px"
                       p="15px 10px"
                       
@@ -160,8 +161,8 @@ export const Categories = () => {
                         w="40px"
                        
                       />
-                      <Text fontSize={"16px"} fontWeight={"600"} color="gray">Chicken</Text>
-                    </Box>
+                    <Text fontSize={"16px"} fontWeight={"600"} color="gray">Chicken</Text>
+                    </Box></NavLink> 
                   </PopoverHeader>
                   <PopoverHeader>
                     <Box

@@ -43,7 +43,16 @@ const reducer = (state=initialState , action) =>{
                 ...state ,
                 isLoading : false ,
                 isError : true
-            }      
+            }
+        case types.ADD_PRODUCTS_QUANTITY:
+            const { id , quantity} = payload
+            console.log( {id , quantity })
+            const newPatchData = state.ChickenData.map((el)=> el.id === id ? {...el,quantity} : el)
+            return {
+                  ...state,
+                  ChickenData : newPatchData ,
+                  isError: false,
+                };                         
         default :
         return state
     }

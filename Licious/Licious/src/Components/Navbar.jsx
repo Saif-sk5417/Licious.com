@@ -5,6 +5,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { Categories } from "./Navbar/Categories";
 import Searchbar from "./Navbar/Searchbar";
+import styles from "./Component.module.css";
 // import { Link } from 'react-router-dom'
 // import navMod from "./Navbar.module.css"
 //import Cart from './Navbar/Cart'
@@ -38,7 +39,7 @@ const Navbar = () => {
               justifyContent="space-around"
               mr="5px"
             >
-              <Text fontSize="13px" color={"#4a4a4a"} fontFamily={"sens-serif"}>
+              <Text fontSize="13px" color={"#4a4a4a"}>
                 Why Licious?
               </Text>
               <Image src="/Image/Navbar/dotImage.png" w="5px" bg="none"></Image>
@@ -78,7 +79,6 @@ const Navbar = () => {
             <Text
               fontSize="13px"
               color={"#4a4a4a"}
-              fontFamily={"sens-serif"}
               mr="15px"
             >
               FSSC 22000 Certification
@@ -92,7 +92,6 @@ const Navbar = () => {
             <Text
               fontSize="13px"
               color={"#4a4a4a"}
-              fontFamily={"sens-serif"}
               mr="15px"
             >
               About Us
@@ -106,7 +105,6 @@ const Navbar = () => {
             <Text
               fontSize="13px"
               color={"#4a4a4a"}
-              fontFamily={"sens-serif"}
               mr="15px"
             >
               Careers @Licious
@@ -118,19 +116,19 @@ const Navbar = () => {
               w="5px"
               bg="none"
             />
-            <Text fontSize="13px" color={"#4a4a4a"} fontFamily={"sens-serif"}>
+            <Text fontSize="13px" color={"#4a4a4a"}>
               Contact Us{" "}
-              <Image
-                ml="4px"
+              {/* <Image
+                ml="100px"
                 src="https://www.licious.in/img/rebranding/down-arrow.png"
                 w="12px"
                 h="7px"
-              />
+              /> */}
             </Text>
           </Box>
         </Box>
       </Box>
-      <Box w="100%">
+      <Box w="100%" >
         <Box
           p="7px 0"
           w="75%"
@@ -155,10 +153,7 @@ const Navbar = () => {
               src="/Image/Navbar/location_icon.svg"
             ></Image>
             <Box w="250px" h="70px" fontSize={"13px"} p="2px 0" ml="-25%">
-              <Text mt="10pxd" ml={"-52px"} color="gray" mb="-15px">
-                NCR
-              </Text>
-              <Text ml="-15px">Delhi, India</Text>
+              <Text ml="-15px" mt='25px' >Delhi, India</Text>
             </Box>
             <Image
               src="/Image/Navbar/down-arrow.webp"
@@ -192,6 +187,7 @@ const Navbar = () => {
           </Box>
         </Box>
       </Box>
+      <hr className={styles.Divider}/>
     </Box>
   );
 };

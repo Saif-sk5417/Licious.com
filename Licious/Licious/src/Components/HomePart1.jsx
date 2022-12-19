@@ -1,11 +1,12 @@
 import { Box, Button, Divider, Image, Text } from "@chakra-ui/react";
+import BestSeller from "./BestSeller";
 import Component from "./Component";
-import "./Component.css";
+import { Speaker } from "./Speaker";
 
 const HomePart1 = () => {
   let chikenData = [
     { images: "Image/HomePart11/Todays_Deals.png", name: "Today's Deal" },
-    { images: "Image/HomePart11/Chicken_(2).png", name: "Chiken" },
+    { images: "Image/HomePart11/Chicken_(2).png", name: "Chicken" },
     { images: "Image/HomePart11/fish.png", name: "Fish & Seafood" },
     { images: "Image/HomePart11/MUT.png", name: "Mutton" },
     { images: "Image/HomePart11/RC.png", name: "Ready to Cook" },
@@ -19,16 +20,18 @@ const HomePart1 = () => {
   ];
 
   return (
-    <Box  bg="#F7F6F6" >
+    <div>
+    
+    <Box  bg="#F7F6F6">
+  
       <Box>
-        <Image w='100%' src="https://d2407na1z3fc0t.cloudfront.net/Slider/banner_63630e9d6ba0e" />
+        <Image w='100%' mt='50px'  src="https://d2407na1z3fc0t.cloudfront.net/Slider/banner_63630e9d6ba0e" />
       </Box>
       <Box mt="40px" w="35%" border="0px solid red">
         <Text
           color="#4a4a4a"
           fontSize="22px"
           fontWeight="bold"
-          fontStyle="Lato"
         >
           Shop by categories
         </Text>
@@ -74,14 +77,13 @@ const HomePart1 = () => {
             fontSize="12px"
             fontWeight="bold"
             color="#313131"
-            fontFamily="Lato"
           >
-            Join METOPIA to get free delivery on all orders with cart value more
-            than Rs.99.
+            Join METOPIA to get free delivery on all orders with cart value more than Rs.99.
+           
           </Text>
         </Box>
       </Box>
-
+       
       <Box p="50px">
         <Image
           m="auto"
@@ -90,17 +92,26 @@ const HomePart1 = () => {
           alt="img"
         />
       </Box>
+      <Speaker />
+      <BestSeller title='Best Seller' />
       <Box width="79%" margin="auto" p="50px" >
-        <Box w="23%" mb="20px">
-          <Text color="#4a4a4a" fontSize="22px" fontWeight="bold">
+        <Box w="50%" ml='-40px'>
+          <Text 
+          color="#4a4a4a"
+          fontSize="22px"
+          fontWeight="bold"
+          align='left'
+          >
             Explore by category
           </Text>
         </Box>
-        <Box  >
+       
+      </Box>
+      <Box style={{ width: "79%", margin: "auto"}} >
           <Component item={chikenData} />
         </Box>
-      </Box>
     </Box>
+    </div>
   );
 };
 

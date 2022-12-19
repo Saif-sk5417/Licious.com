@@ -10,7 +10,7 @@ import {
   useNumberInput,
 } from "@chakra-ui/react";
 
-function HookUsage() {
+function HookUsage({quantity}) {
   const { getInputProps, getIncrementButtonProps, getDecrementButtonProps } =
     useNumberInput({
       step: 1,
@@ -21,7 +21,7 @@ function HookUsage() {
 
   const inc = getIncrementButtonProps();
   const dec = getDecrementButtonProps();
-  const input = getInputProps();
+  const input = getInputProps({quantity});
 
   return (
     <HStack>
@@ -36,14 +36,14 @@ function HookUsage() {
       >
         -
       </Button>
-      <Input
+       <Input
         w="45px"
         fontWeight="bold"
         h="30px"
         border="none"
         {...input}
         disabled
-      />
+      /> 
       <Button
         bg="#f2f2f2"
         border="0px solid #f2f2f2"
@@ -58,7 +58,7 @@ function HookUsage() {
     </HStack>
   );
 }
-export const SingleItem = () => {
+export const SingleItem = ({Name,quantity,Weight,Price,id}) => {
   return (
     <>
       <Box
@@ -82,9 +82,9 @@ export const SingleItem = () => {
               // bg="blue"
             >
               <Text bg="#f2f2f2" p="1px 5px" m="2">
-                1
+                {id}
               </Text>
-              <Text>Classic Eggs - Pack Of 12</Text>
+              <Text>{Name}</Text>
             </Box>
             <Box>
               <CloseButton size="md" />
@@ -111,14 +111,14 @@ export const SingleItem = () => {
                 fontSize="13px"
                 mr="15px"
               >
-                12 Pieces
+                {Weight}
               </Box>
               <Box color="#D11243" fontSize="13px">
-                ₹310.00
+                ₹{Price}
               </Box>
             </Box>
             <Box>
-              <HookUsage />
+              <HookUsage quantity={quantity} />
             </Box>
           </Box>
         </Box>

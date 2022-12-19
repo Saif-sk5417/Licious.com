@@ -20,6 +20,10 @@ import {
   Icon,
 } from "@chakra-ui/react";
 import { SingleItem } from "./Singlecartitem";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useState } from "react";
+import { NavLink } from "react-router-dom";
 const bill_breakup_Box = {
   width: "90%",
   margin: "0 0 10px",
@@ -38,7 +42,20 @@ const bill_breakup = {
 function Cart() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
-
+  const [cartData , setcartData] = useState([])
+  const [SubTotal , setSubTotal] = useState(0)
+  const [total , settotal] = useState(0)
+  const ChickenData  = useSelector((store) => store.ChickenData)
+  let Data = ChickenData.filter((el)=> el.quantity > 0 )
+  useEffect(()=>{
+    if(Data.length > 0){
+     const sub = Data.reduce((acc,el)=>{ return acc + el.Price * el.quantity},0)
+      setSubTotal(sub)
+      settotal(sub + 200)
+      setcartData(Data)
+      console.log(Data)
+    }
+  },[Data.length])
   return (
     <>
       <Box>
@@ -46,6 +63,7 @@ function Cart() {
           ref={btnRef}
           bg="white"
           _hover={{ bg: "white" }}
+          fontWeight="normal" 
           leftIcon={
             <Image
               src="https://www.licious.in/img/rebranding/cart_icon.svg"
@@ -78,22 +96,21 @@ function Cart() {
             </Box>
             <Box h="36px" bg="green" ml="-20px" mr="-20px" color="white">
               <Text fontSize="13px" textAlign="center" pt="8px">
-                Your cart value is less than ₹399 & delivery charge applies
+              ₹200 delivery charge applies
               </Text>
             </Box>
             <br />
             <Box h="36px" border="solid green">
               <Text fontSize="13px" textAlign="center" pt="8px">
-                Congratulations! You've saved ₹46
+                Congratulations! Here is Your Items
               </Text>
             </Box>
-            <SingleItem />
-            <SingleItem />
-            <SingleItem />
-            <SingleItem />
-            <SingleItem />
-            <SingleItem />
-            <SingleItem />
+           {cartData.map((el,i)=> <SingleItem 
+           Name = {el.Name} 
+           quantity={el.quantity}
+           Price = {el.Price}
+           id = {i + 1}
+           />)}
           </DrawerBody>
 
           <DrawerFooter
@@ -120,7 +137,7 @@ function Cart() {
                 >
                   Subtotal{" "}
                   <Box className="message">
-                    <span>299.02</span>
+                    <span>{SubTotal}</span>
                   </Box>
                 </li>
                 <li
@@ -133,7 +150,7 @@ function Cart() {
                 >
                   Delivery Charge{" "}
                   <Box className="message">
-                    <span>39</span>
+                    <span> ₹200</span>
                   </Box>
                 </li>
                 <li
@@ -160,7 +177,7 @@ function Cart() {
                 >
                   Total
                   <Box className="message">
-                    <span>338.02</span>
+                    <span>{total}</span>
                   </Box>
                 </li>
               </ul>
@@ -174,19 +191,23 @@ function Cart() {
                 fontSize="14px"
                 fontWeight="bold"
               >
-                Total : ₹ 150
+                Total : ₹ {total}
               </Box>
               <Spacer />
 
-              <Button
+              <NavLink to='/Checkout'><Button
                 h="atuo"
                 w="197px"
                 bg="#e4003e"
+                padding='10px 0px 10px 0px'
                 variant="solid"
+                color='white'
                 _hover={{ bg: "#e4003e" }}
+                
               >
                 Proceed to checkout
-              </Button>
+              </Button></NavLink>
+              
             </Flex>
           </DrawerFooter>
         </DrawerContent>

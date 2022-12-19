@@ -20,7 +20,7 @@ const Footer = () => {
   return (
     <Box>
     <Box w="35%" p="30px" border="0px solid red" >
-      <Text color="" fontSize="35px" fontWeight="bold" >In the News</Text>
+      <Text color="" fontSize="35px" ml='-100px'fontWeight="bold" >In the News</Text>
     </Box>
           <HomePageSlider2 />
 

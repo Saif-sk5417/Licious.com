@@ -11,8 +11,8 @@ const HomePart2 = () => {
           fontWeight="bold"
           display="flex"
           m="auto"
-          // mt="50px"
           mb="15px"
+          padding='50px 0px 0px 0px'
           justifyContent="space-between"
         >
           <Text  fontSize="25px"  color="#4a4a4a">

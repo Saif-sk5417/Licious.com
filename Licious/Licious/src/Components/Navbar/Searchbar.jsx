@@ -1,11 +1,12 @@
 import { Input,Image,Box } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 // import { useNavigate } from 'react-router-dom'
 
 
 
 const Searchbar = () => {
-//   const Navigate=useNavigate()
+  const Navigate = useNavigate()
   const [svalue,setSvalue]=useState('')
   
   
@@ -15,14 +16,14 @@ const Searchbar = () => {
 
 
 const ClickMe = () => {
-  console.log("Hello Click Me")
+  check(svalue)
 }
 const check=(svalue)=>{
 let bag=svalue.toLowerCase();
 console.log('svalue =>',bag)
   
 if(bag=="products"){console.log("Navigate('/products')");}
-if(bag=="chicken"){console.log("Navigate('/Chicken')");}
+if(bag=="Chicken"){Navigate('/Chicken')}
 if(bag=="sea" || bag=='fish'){console.log("Navigate('/fish')");}
 if(bag=="id"){console.log("Navigate('/products')")}
 if(bag=="products"){console.log("Navigate('/products')")}
