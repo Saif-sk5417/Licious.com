@@ -20,10 +20,11 @@ import {
   Icon,
 } from "@chakra-ui/react";
 import { SingleItem } from "./Singlecartitem";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { getChickenData } from "../Redux/action";
 const bill_breakup_Box = {
   width: "90%",
   margin: "0 0 10px",
@@ -42,20 +43,22 @@ const bill_breakup = {
 function Cart() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
-  const [cartData , setcartData] = useState([])
-  const [SubTotal , setSubTotal] = useState(0)
-  const [total , settotal] = useState(0)
-  const ChickenData  = useSelector((store) => store.ChickenData)
-  let Data = ChickenData.filter((el)=> el.quantity > 0 )
-  useEffect(()=>{
-    if(Data.length > 0){
-     const sub = Data.reduce((acc,el)=>{ return acc + el.Price * el.quantity},0)
-      setSubTotal(sub)
-      settotal(sub + 200)
-      setcartData(Data)
-      console.log(Data)
+  const [cartData, setcartData] = useState([]);
+  const [SubTotal, setSubTotal] = useState(0);
+  const [total, settotal] = useState(0);
+  const ChickenData = useSelector((store) => store.reducer.ChickenData);
+  const dispatch = useDispatch();
+  let Data = ChickenData.filter((el) => el.quantity > 0);
+  useEffect(() => {
+    if (Data.length > 0) {
+      const sub = Data.reduce((acc, el) => {
+        return acc + el.Price * el.quantity;
+      }, 0);
+      setSubTotal(sub);
+      settotal(sub + 200);
+      setcartData(Data);
     }
-  },[Data.length])
+  }, [Data.length]);
   return (
     <>
       <Box>
@@ -63,7 +66,7 @@ function Cart() {
           ref={btnRef}
           bg="white"
           _hover={{ bg: "white" }}
-          fontWeight="normal" 
+          fontWeight="normal"
           leftIcon={
             <Image
               src="https://www.licious.in/img/rebranding/cart_icon.svg"
@@ -96,7 +99,7 @@ function Cart() {
             </Box>
             <Box h="36px" bg="green" ml="-20px" mr="-20px" color="white">
               <Text fontSize="13px" textAlign="center" pt="8px">
-              ₹200 delivery charge applies
+                ₹200 delivery charge applies
               </Text>
             </Box>
             <br />
@@ -105,12 +108,14 @@ function Cart() {
                 Congratulations! Here is Your Items
               </Text>
             </Box>
-           {cartData.map((el,i)=> <SingleItem 
-           Name = {el.Name} 
-           quantity={el.quantity}
-           Price = {el.Price}
-           id = {i + 1}
-           />)}
+            {cartData.map((el, i) => (
+              <SingleItem
+                Name={el.Name}
+                quantity={el.quantity}
+                Price={el.Price}
+                id={i + 1}
+              />
+            ))}
           </DrawerBody>
 
           <DrawerFooter
@@ -195,19 +200,19 @@ function Cart() {
               </Box>
               <Spacer />
 
-              <NavLink to='/Checkout'><Button
-                h="atuo"
-                w="197px"
-                bg="#e4003e"
-                padding='10px 0px 10px 0px'
-                variant="solid"
-                color='white'
-                _hover={{ bg: "#e4003e" }}
-                
-              >
-                Proceed to checkout
-              </Button></NavLink>
-              
+              <NavLink to="/Checkout">
+                <Button
+                  h="atuo"
+                  w="197px"
+                  bg="#e4003e"
+                  padding="10px 0px 10px 0px"
+                  variant="solid"
+                  color="white"
+                  _hover={{ bg: "#e4003e" }}
+                >
+                  Proceed to checkout
+                </Button>
+              </NavLink>
             </Flex>
           </DrawerFooter>
         </DrawerContent>
