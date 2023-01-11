@@ -1,60 +1,60 @@
 import { isAxiosError } from 'axios'
-import * as types  from './actionTypes'
+import * as types from './actionTypes'
 const initialState = {
-    isLoading : false ,
-    ChickenData : [] ,
-    SeaFoodData : [] ,
-    isError : false 
+    isLoading: false,
+    ChickenData: [],
+    SeaFoodData: [],
+    isError: false
 }
 
-const reducer = (state=initialState , action) =>{
-    const { type , payload } = action
-    switch(type){
-       case types.GET_CHICKEN_REQUEST :
-        return {
-            ...state ,
-            isLoading : true
-        }
-        case types.GET_CHICKEN_SUCCESS :
-        return {
-            ...state ,
-            isLoading : false ,
-            ChickenData : payload
-        }
-        case types.GET_CHICKEN_FAILURE :
+const reducer = (state = initialState, action) => {
+    const { type, payload } = action
+    switch (type) {
+        case types.GET_CHICKEN_REQUEST:
             return {
-                ...state ,
-                isLoading : false , 
-                isError : true 
+                ...state,
+                isLoading: true
             }
-        case types.GET_SEAFOOD_REQUEST :
+        case types.GET_CHICKEN_SUCCESS:
             return {
-                ...state ,
-                isLoading : true
+                ...state,
+                isLoading: false,
+                ChickenData: payload
             }
-        case types.GET_SEAFOOD_SUCCESS :
+        case types.GET_CHICKEN_FAILURE:
             return {
-                ...state ,
-                isLoading : false ,
-                SeaFoodData : payload
-            }  
-        case types.GET_SEAFOOD_FAILURE :
+                ...state,
+                isLoading: false,
+                isError: true
+            }
+        case types.GET_SEAFOOD_REQUEST:
             return {
-                ...state ,
-                isLoading : false ,
-                isError : true
+                ...state,
+                isLoading: true
+            }
+        case types.GET_SEAFOOD_SUCCESS:
+            return {
+                ...state,
+                isLoading: false,
+                SeaFoodData: payload
+            }
+        case types.GET_SEAFOOD_FAILURE:
+            return {
+                ...state,
+                isLoading: false,
+                isError: true
             }
         case types.ADD_PRODUCTS_QUANTITY:
-            const { id , quantity} = payload
-            console.log( {id , quantity })
-            const newPatchData = state.ChickenData.map((el)=> el.id === id ? {...el,quantity} : el)
+            const { id, quantity } = payload
+            console.log({ id, quantity })
+            const newPatchData = state.ChickenData.map((el) => el.id === id ? { ...el, quantity } : el)
             return {
-                  ...state,
-                  ChickenData : newPatchData ,
-                  isError: false,
-                };                         
-        default :
-        return state
+                ...state,
+                ChickenData: newPatchData,
+                isError: false,
+            };
+        default:
+            return state
     }
 }
 

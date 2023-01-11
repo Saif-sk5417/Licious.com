@@ -6,6 +6,19 @@ import React, { useState } from "react";
 import { Categories } from "./Navbar/Categories";
 import Searchbar from "./Navbar/Searchbar";
 import styles from "./Component.module.css";
+import { useSelector } from "react-redux";
+import {
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  PopoverHeader,
+  PopoverBody,
+  PopoverFooter,
+  PopoverArrow,
+  PopoverCloseButton,
+  PopoverAnchor,
+  Button,
+} from "@chakra-ui/react";
 // import { Link } from 'react-router-dom'
 // import navMod from "./Navbar.module.css"
 //import Cart from './Navbar/Cart'
@@ -17,8 +30,61 @@ import styles from "./Component.module.css";
 // import Map from './Navbar/Map'
 // import Profile_Login from './Navbar/Profile'
 
+import { chakra, Flex } from "@chakra-ui/react";
+import { FaUserAlt, FaLock } from "react-icons/fa";
+
+import { CheckCircleIcon, WarningIcon } from "@chakra-ui/icons";
+import { useToast } from "@chakra-ui/react";
+
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { userLogout } from "./Redux/Auth/auth.action";
+
 const Navbar = () => {
   // background-color: #fff;
+  const isAuth = useSelector((store) => store.authManager.isAuth);
+  const userName = useSelector((store) => store.authManager.userdata.username);
+  const dispatch = useDispatch();
+  const toast = useToast();
+  const navigate = useNavigate();
+  const handleLogOut = () => {
+    if (!isAuth) {
+      toast({
+        position: "top-left",
+
+        duration: 1200,
+
+        render: () => (
+          <Flex color="white" border="4px solid white" p={"10px"} bgColor="red">
+            <WarningIcon w={30} h={30} />
+            <Text size="lg" ml="15px">
+              You have not Signed in yet!!!
+            </Text>
+          </Flex>
+        ),
+      });
+    } else {
+      toast({
+        position: "top-left",
+        duration: 1200,
+        render: () => (
+          <Flex
+            color="white"
+            border="4px solid white"
+            p={"10px"}
+            bgColor="green.400"
+          >
+            <CheckCircleIcon w={30} h={30} />
+            <Text size="lg" ml="15px">
+              You have Logout Successfully!!!
+            </Text>
+          </Flex>
+        ),
+      });
+      dispatch(userLogout());
+    }
+  };
+  //console.log(userName);
   // padding: 25px 0;
   // height: 80px;
   return (
@@ -76,11 +142,7 @@ const Navbar = () => {
             alignItems={"center"}
             justifyContent="end"
           >
-            <Text
-              fontSize="13px"
-              color={"#4a4a4a"}
-              mr="15px"
-            >
+            <Text fontSize="13px" color={"#4a4a4a"} mr="15px">
               FSSC 22000 Certification
             </Text>
             <Image
@@ -89,11 +151,7 @@ const Navbar = () => {
               w="5px"
               bg="none"
             ></Image>
-            <Text
-              fontSize="13px"
-              color={"#4a4a4a"}
-              mr="15px"
-            >
+            <Text fontSize="13px" color={"#4a4a4a"} mr="15px">
               About Us
             </Text>
             <Image
@@ -102,11 +160,7 @@ const Navbar = () => {
               w="5px"
               bg="none"
             />
-            <Text
-              fontSize="13px"
-              color={"#4a4a4a"}
-              mr="15px"
-            >
+            <Text fontSize="13px" color={"#4a4a4a"} mr="15px">
               Careers @Licious
             </Text>
             <Image
@@ -128,7 +182,7 @@ const Navbar = () => {
           </Box>
         </Box>
       </Box>
-      <Box w="100%" >
+      <Box w="100%">
         <Box
           p="7px 0"
           w="75%"
@@ -153,7 +207,9 @@ const Navbar = () => {
               src="/Image/Navbar/location_icon.svg"
             ></Image>
             <Box w="250px" h="70px" fontSize={"13px"} p="2px 0" ml="-25%">
-              <Text ml="-15px" mt='25px' >Delhi, India</Text>
+              <Text ml="-15px" mt="25px">
+                Delhi, India
+              </Text>
             </Box>
             <Image
               src="/Image/Navbar/down-arrow.webp"
@@ -174,7 +230,21 @@ const Navbar = () => {
           >
             <Categories />
           </Box>
-          <Login />
+
+          {isAuth ? (
+            <Box>
+              <Popover>
+                <PopoverTrigger>
+                  <Button>{userName} </Button>
+                </PopoverTrigger>
+                <PopoverContent w="120px" mb="20px" border={"solid red"}>
+                  <Button onClick={handleLogOut}>Logout</Button>
+                </PopoverContent>
+              </Popover>
+            </Box>
+          ) : (
+            <Login />
+          )}
           <Box
             w="6%"
             display={"flex"}
@@ -187,7 +257,7 @@ const Navbar = () => {
           </Box>
         </Box>
       </Box>
-      <hr className={styles.Divider}/>
+      <hr className={styles.Divider} />
     </Box>
   );
 };

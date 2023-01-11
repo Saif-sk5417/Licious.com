@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { toast } from "react-toastify";
 
 import {
   Flex,
@@ -17,30 +16,69 @@ import {
 } from "@chakra-ui/react";
 import { FaUserAlt, FaLock } from "react-icons/fa";
 
+import { CheckCircleIcon, WarningIcon } from "@chakra-ui/icons";
+import { Text, useToast } from "@chakra-ui/react";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { userLogin, userLogout } from "../Redux/Auth/auth.action";
+//console.log(userLogin, userLogout);
 const CFaUserAlt = chakra(FaUserAlt);
 const CFaLock = chakra(FaLock);
+let intdata = {
+  email: "",
+  password: "",
+};
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const [showAlert, setShowAlert] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [data, setData] = useState(intdata);
+  const existingData = useSelector((state) => state.authManager.userdata);
+  const dispatch = useDispatch();
+  const toast = useToast();
+  const isAuth = useSelector((state) => state.authManager.isAuth);
+  const navigate = useNavigate();
   const handleShowClick = () => setShowPassword(!showPassword);
-  function handleSubmit(event) {
-    event.preventDefault();
-    if (email === "admin@gmail.com" && password === "admin") {
-      setShowAlert(true);
-
-      toast.success("Login Success!");
-      setShowAlert("");
-      //console.log(email, password);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (
+      data.email !== existingData.email ||
+      data.password !== existingData.password
+    ) {
+      toast({
+        position: "top-left",
+        render: () => (
+          <Flex color="white" border="4px solid white" p={"10px"} bgColor="red">
+            <WarningIcon w={30} h={30} />
+            <Text size="lg" ml="15px">
+              Incorrect email or password
+            </Text>
+          </Flex>
+        ),
+      });
     } else {
-      setShowAlert(false);
-
-      toast.error("Login Failed!");
-      setShowAlert("");
+      //navigate("/");
+      dispatch(userLogin());
+      alert("Login Success");
+      toast({
+        position: "top-right",
+        render: () => (
+          <Flex color="white" border="4px solid white" p={"10px"} bgColor="red">
+            <WarningIcon w={30} h={30} />
+            <Text size="lg" ml="15px">
+              Login Success
+            </Text>
+          </Flex>
+        ),
+      });
     }
-  }
+
+    setData(intdata);
+  };
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setData({ ...data, [name]: value });
+  };
 
   return (
     <Flex alignItems="center" flexDirection="column">
@@ -67,8 +105,11 @@ const Login = () => {
                   <Input
                     color="black"
                     type="email"
+                    value={data.email}
                     placeholder="email address"
-                    onChange={(e) => setEmail(e.target.value)}
+                    isRequired
+                    name="email"
+                    onChange={handleChange}
                   />
                 </InputGroup>
               </FormControl>
@@ -81,9 +122,12 @@ const Login = () => {
                   />
                   <Input
                     color="black"
+                    value={data.password}
+                    name="password"
                     type={showPassword ? "text" : "password"}
                     placeholder="Password"
-                    onChange={(e) => setPassword(e.target.value)}
+                    isRequired
+                    onChange={handleChange}
                   />
                   <InputRightElement width="4.5rem">
                     <Button
