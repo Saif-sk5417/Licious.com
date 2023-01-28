@@ -246,7 +246,7 @@
   "Chicken": [
     {
       "id": 1,
-      "quantity": 0,
+      "quantity": 1,
       "Name": "Chicken Thigh Boneless",
       "des_1": "Fresh nakhre for fresh, juicy & tender chicken thigh cuts",
       "Weight": "450gms",
@@ -258,7 +258,7 @@
     },
     {
       "id": 2,
-      "quantity": 3,
+      "quantity": 0,
       "Name": "Chicken Drumstick - Pack Of 6",
       "des_1": "Juicy, meaty pieces by a dedicated team of Nakhrebaaz",
       "Weight": "Pieces: 6",
@@ -270,7 +270,7 @@
     },
     {
       "id": 3,
-      "quantity": 1,
+      "quantity": 0,
       "Name": "Chicken Mince/ Keema (Large Pack)",
       "des_1": "Boneless, minced chicken for a variety of dishes",
       "Weight": "900gms",
@@ -294,7 +294,7 @@
     },
     {
       "id": 5,
-      "quantity": 0,
+      "quantity": 1,
       "Name": "Chicken Boneless - Mini Bites",
       "des_1": "Bite-sized pieces of boneless chicken for pizza & more",
       "Weight": "250gms",

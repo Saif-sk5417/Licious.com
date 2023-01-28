@@ -37,7 +37,7 @@ import { CheckCircleIcon, WarningIcon } from "@chakra-ui/icons";
 import { useToast } from "@chakra-ui/react";
 
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { userLogout } from "./Redux/Auth/auth.action";
 
 const Navbar = () => {
@@ -88,8 +88,14 @@ const Navbar = () => {
   // padding: 25px 0;
   // height: 80px;
   return (
-    <Box w="100%" h="100px" bg={"#fff"} pb="1%">
-      <Box w="100%" h="25px" bg={"#EAEAEA"}>
+    <Box
+      position={"fixed"}
+      zIndex="2"
+      w={["100%", "100%", "100%"]}
+      bg={"#fff"}
+      top="0"
+    >
+      <Box h="25px" bg={"#EAEAEA"}>
         <Box
           w="75%"
           padding={"3px 0"}
@@ -182,48 +188,49 @@ const Navbar = () => {
           </Box>
         </Box>
       </Box>
-      <Box w="100%">
+      <Box>
         <Box
           p="7px 0"
-          w="75%"
+          w="80%"
           m={"auto"}
           display="flex"
           alignItems={"center"}
           justifyContent={"space-between"}
         >
-          <Box>
-            <Image src="/Image/Navbar/licious-logo.svg" />
-          </Box>
+          <Link to="/">
+            <Box>
+              <Image src="/Image/Navbar/licious-logo.svg" />
+            </Box>
+          </Link>
+
           <Box
-            w="10%"
             p="10px 0 0 0"
             display={"flex"}
             alignItems="center"
             justifyContent={"space-around"}
           >
             <Image
-              w="55px"
+              mw="55px"
               h="30px"
               src="/Image/Navbar/location_icon.svg"
             ></Image>
-            <Box w="250px" h="70px" fontSize={"13px"} p="2px 0" ml="-25%">
+            <Box h="70px" fontSize={"13px"} p="2px 0" ml="-25%">
               <Text ml="-15px" mt="25px">
                 Delhi, India
               </Text>
             </Box>
             <Image
               src="/Image/Navbar/down-arrow.webp"
-              w="12px"
+              mw="12px"
               ml="-35px"
               mt="5%"
               h="7px"
             ></Image>
           </Box>
-          <Box w={"40%"} mr="-20px" ml="-20px">
+          <Box mr="-20px" ml="-20px">
             <Searchbar />
           </Box>
           <Box
-            w="8%"
             display={"flex"}
             alignItems="center"
             justifyContent={"space-between"}
@@ -246,7 +253,6 @@ const Navbar = () => {
             <Login />
           )}
           <Box
-            w="6%"
             display={"flex"}
             alignItems="center"
             justifyContent={"space-between"}

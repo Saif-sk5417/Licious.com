@@ -8,9 +8,15 @@ import {
   Input,
   Divider,
   useNumberInput,
+  Flex,
+  useToast,
 } from "@chakra-ui/react";
+import { useDispatch } from "react-redux";
+import { getCart, removeProductFromCart } from "../Redux/action";
+import { useEffect } from "react";
+import { CheckCircleIcon } from "@chakra-ui/icons";
 
-function HookUsage({quantity}) {
+function HookUsage({ quantity }) {
   const { getInputProps, getIncrementButtonProps, getDecrementButtonProps } =
     useNumberInput({
       step: 1,
@@ -21,7 +27,7 @@ function HookUsage({quantity}) {
 
   const inc = getIncrementButtonProps();
   const dec = getDecrementButtonProps();
-  const input = getInputProps({quantity});
+  const input = getInputProps({ quantity });
 
   return (
     <HStack>
@@ -36,14 +42,14 @@ function HookUsage({quantity}) {
       >
         -
       </Button>
-       <Input
+      <Input
         w="45px"
         fontWeight="bold"
         h="30px"
         border="none"
         {...input}
         disabled
-      /> 
+      />
       <Button
         bg="#f2f2f2"
         border="0px solid #f2f2f2"
@@ -58,7 +64,37 @@ function HookUsage({quantity}) {
     </HStack>
   );
 }
-export const SingleItem = ({Name,quantity,Weight,Price,id}) => {
+export const SingleItem = ({ Name, quantity, Weight, Price, id, arrange }) => {
+  const dispatch = useDispatch();
+  const toast = useToast();
+  //console.log(Weight);
+  const handleRemoveCartitem = ({ id }) => {
+    //console.log(id);
+    dispatch(removeProductFromCart(id))
+      .then(() =>
+        toast({
+          position: "top-right",
+          duration: 1200,
+          render: () => (
+            <Flex
+              color="white"
+              border="4px solid white"
+              p={"10px"}
+              bgColor="green.400"
+            >
+              <CheckCircleIcon w={30} h={30} />
+              <Text size="lg" ml="15px">
+                Item removed from Cart
+              </Text>
+            </Flex>
+          ),
+        })
+      )
+      .then(() => {
+        dispatch(getCart());
+      });
+  };
+
   return (
     <>
       <Box
@@ -68,7 +104,6 @@ export const SingleItem = ({Name,quantity,Weight,Price,id}) => {
       >
         <Box>
           <Box
-            h="24.25"
             display="flex"
             alignItems="center"
             justifyContent="space-between"
@@ -82,11 +117,11 @@ export const SingleItem = ({Name,quantity,Weight,Price,id}) => {
               // bg="blue"
             >
               <Text bg="#f2f2f2" p="1px 5px" m="2">
-                {id}
+                {arrange}
               </Text>
-              <Text>{Name}</Text>
+              <Text p="2">{Name}</Text>
             </Box>
-            <Box>
+            <Box mr="20px" onClick={() => handleRemoveCartitem({ id })}>
               <CloseButton size="md" />
               {/* <Text>X</Text> */}
             </Box>
@@ -113,7 +148,7 @@ export const SingleItem = ({Name,quantity,Weight,Price,id}) => {
               >
                 {Weight}
               </Box>
-              <Box color="#D11243" fontSize="13px">
+              <Box color="#D11243" fontSize="13px" fontWeight={"bold"}>
                 ₹{Price}
               </Box>
             </Box>

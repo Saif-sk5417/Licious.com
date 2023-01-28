@@ -26,10 +26,10 @@ function Drawercomp() {
       <Box>
         <Button
           ref={btnRef}
-          ml='5px'
+          ml="5px"
           bg="white"
           _hover={{ bg: "white" }}
-          fontWeight="normal" 
+          fontWeight="normal"
           leftIcon={
             <Image
               src="/Image/Navbar/profile_icon.svg"
