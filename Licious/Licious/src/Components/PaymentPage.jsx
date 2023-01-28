@@ -8,8 +8,7 @@ import {
   PinInput,
   PinInputField,
 } from "@chakra-ui/react";
-import  Footer  from "../Components/Footer";
-import  Navbar  from "../Components/Navbar";
+
 import "./PaymentPage.css";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -39,8 +38,7 @@ export const PaymentPage = () => {
   };
   return (
     <>
-      <Navbar />
-      <div className="Card-main">
+      <div style={{ marginTop: "200px" }} className="Card-main">
         <div className="Card-left">
           <img
             src="https://static.vecteezy.com/system/resources/previews/005/724/908/non_2x/black-mock-up-credit-card-for-e-commerce-template-of-bank-card-with-golden-chip-black-plastic-card-for-debit-and-credit-transaction-isolated-illustration-vector.jpg"
@@ -79,7 +77,7 @@ export const PaymentPage = () => {
                 <PinInputField />
                 <PinInputField />
               </PinInput> */}
-              <Input _placeholder='Enter Your 15 digit Number ' />
+              <InputGroup _placeholder="Enter Your 15 digit Number " />
             </InputGroup>
           </div>
           <br />
@@ -121,7 +119,6 @@ export const PaymentPage = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 };

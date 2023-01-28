@@ -24,7 +24,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { getChickenData } from "../Redux/action";
+import { getChickenData, getCart } from "../Redux/action";
 const bill_breakup_Box = {
   width: "90%",
   margin: "0 0 10px",
@@ -43,22 +43,24 @@ const bill_breakup = {
 function Cart() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
-  const [cartData, setcartData] = useState([]);
+
   const [SubTotal, setSubTotal] = useState(0);
   const [total, settotal] = useState(0);
-  const ChickenData = useSelector((store) => store.reducer.ChickenData);
+  const Data = useSelector((store) => store.reducer.cart);
   const dispatch = useDispatch();
-  let Data = ChickenData.filter((el) => el.quantity > 0);
+
+  //console.log("CARTTT===>", Data);
   useEffect(() => {
+    dispatch(getCart());
     if (Data.length > 0) {
       const sub = Data.reduce((acc, el) => {
-        return acc + el.Price * el.quantity;
+        return acc + el.Price;
       }, 0);
       setSubTotal(sub);
+
       settotal(sub + 200);
-      setcartData(Data);
     }
-  }, [Data.length]);
+  }, [dispatch, Data.length]);
   return (
     <>
       <Box>
@@ -103,17 +105,20 @@ function Cart() {
               </Text>
             </Box>
             <br />
-            <Box h="36px" border="solid green">
+            <Box h="36px" border="solid green" mb="20px">
               <Text fontSize="13px" textAlign="center" pt="8px">
                 Congratulations! Here is Your Items
               </Text>
             </Box>
-            {cartData.map((el, i) => (
+            {Data.map((el, i) => (
               <SingleItem
+                key={el.id}
                 Name={el.Name}
                 quantity={el.quantity}
                 Price={el.Price}
-                id={i + 1}
+                Weight={el.weights}
+                id={el.id}
+                arrange={i + 1}
               />
             ))}
           </DrawerBody>

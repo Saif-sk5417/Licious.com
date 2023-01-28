@@ -1,19 +1,17 @@
 import BestSeller from "../Components/BestSeller";
 import BreakFast from "../Components/BreakFast";
-import Footer from "../Components/Footer";
+
 import Gotottop from "../Components/Gotottop";
 import { HomePart1 } from "../Components/HomePart1";
 import { HomePart2 } from "../Components/HomePart2";
-import Navbar from "../Components/Navbar";
 
 const HomePage = () => {
   return (
-    <div>
-      <Navbar />
+    <div style={{ marginTop: "130px" }}>
       <HomePart1 />
-      <BreakFast title='Breakfast & Snacking Specials' />
+      <BreakFast title="Breakfast & Snacking Specials" />
       <HomePart2 />
-      <Footer />
+
       <Gotottop />
     </div>
   );

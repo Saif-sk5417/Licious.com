@@ -1,8 +1,6 @@
 import { Button, Center, Heading, Input, Select, Text } from "@chakra-ui/react";
 import React from "react";
 import { Navigate, useNavigate } from "react-router-dom";
-import  Footer  from "../Components/Footer";
-import  Navbar  from "../Components/Navbar";
 
 export const CheckoutPage = () => {
   let Navigate = useNavigate();
@@ -10,9 +8,7 @@ export const CheckoutPage = () => {
     Navigate("/payment");
   };
   return (
-    <>
-      <Navbar />
-      <br />
+    <div style={{ marginTop: "200px" }}>
       <div style={{ width: "80%", margin: "auto" }}>
         <Heading>Select a delivery address</Heading>
         <br />
@@ -28,7 +24,7 @@ export const CheckoutPage = () => {
           <br />
           <Text fontWeight="normal">
             <Text fontSize="md" fontWeight="bold">
-              Licious 
+              Licious
             </Text>
             <Text fontSize="xs" fontWeight="normal">
               5th Floor,
@@ -42,7 +38,7 @@ export const CheckoutPage = () => {
               Add delivery instructions
             </Text>
             <br />
-            <Button  onClick={handleaddress} size="sm" fontSize="sm">
+            <Button onClick={handleaddress} size="sm" fontSize="sm">
               Use this Address
             </Button>
           </Text>
@@ -79,7 +75,7 @@ export const CheckoutPage = () => {
             <Input size="sm" />
             <br />
           </div>
-          <div style={{display:"flex",justifyContent:"space-between"}}>
+          <div style={{ display: "flex", justifyContent: "space-between" }}>
             <div>
               <label style={{ fontSize: "14px", fontWeight: "bold" }}>
                 Mobile number
@@ -166,7 +162,6 @@ export const CheckoutPage = () => {
           <br />
         </div>
       </div>
-      <Footer />
-    </>
+    </div>
   );
 };

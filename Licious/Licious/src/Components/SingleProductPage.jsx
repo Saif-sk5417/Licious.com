@@ -1,21 +1,15 @@
-import BreakFast from "./BreakFast"
-import Footer from "./Footer"
-import Navbar from "./Navbar"
-import ProductPageImage from "./ProductPageImage"
-import { SingleProductPageBox } from "./SingleProductPageBox"
+import BreakFast from "./BreakFast";
+import ProductPageImage from "./ProductPageImage";
+import { SingleProductPageBox } from "./SingleProductPageBox";
 
+const SingleProductPage = () => {
+  return (
+    <div style={{ marginTop: "200px" }}>
+      <SingleProductPageBox />
+      <ProductPageImage />
+      <BreakFast title="You May Also Like" />
+    </div>
+  );
+};
 
-
-const SingleProductPage  = () =>{
-    return (
-        <div>
-            <Navbar />
-            <SingleProductPageBox />
-            <ProductPageImage />
-            <BreakFast title="You May Also Like"/>
-            <Footer/>
-        </div>
-    )
-}
-
-export default SingleProductPage
+export default SingleProductPage;
