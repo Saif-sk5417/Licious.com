@@ -16,6 +16,7 @@ import {
   Box,
   useToast,
   Flex,
+  Spacer,
 } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
@@ -56,16 +57,18 @@ const SingleCard = (prop) => {
       )
       .then(() => dispatch(getCart()));
   };
-  useEffect(() => {
-    dispatch(getCart());
-  }, []);
 
   // const handleSubtocart = (id, quantity) => {
   //   dispatch(SubProductQuantity(id, quantity));
   // };
 
   return (
-    <Card maxW="sm" key={id}>
+    <Card
+      maxW="sm"
+      key={id}
+      borderRadius="0px 0px 15px 15px"
+      boxShadow={"rgba(0, 0, 0, 0.1) 0px 10px 50px"}
+    >
       <NavLink to={`/Chicken/${id}`}>
         <CardBody>
           <Image src={image} alt={Name} borderRadius="lg" />
@@ -77,20 +80,31 @@ const SingleCard = (prop) => {
               {des_1}
             </Text>
             <Text textAlign="left">{weights}</Text>
-            <Text textAlign="left" color="red" fontSize="xl">
-              {" "}
-              MRP : ₹{Price}
-            </Text>
           </Stack>
         </CardBody>
       </NavLink>
       <Divider />
-      <CardFooter>
-        <ButtonGroup spacing="4">
-          <Button onClick={() => handleAddtocart()} colorScheme="red" size="sm">
-            "ADDTOCART"
-          </Button>
-        </ButtonGroup>
+      <CardFooter
+        display="flex"
+        //border={"1px dotted red"}
+      >
+        <Box>
+          <Text textAlign="left" color="red" fontSize="xl">
+            MRP : ₹{Price}
+          </Text>
+        </Box>
+        <Spacer />
+        <Box>
+          <ButtonGroup spacing="4">
+            <Button
+              onClick={() => handleAddtocart()}
+              colorScheme="red"
+              size="sm"
+            >
+              "ADD TO CART"
+            </Button>
+          </ButtonGroup>
+        </Box>
       </CardFooter>
     </Card>
   );

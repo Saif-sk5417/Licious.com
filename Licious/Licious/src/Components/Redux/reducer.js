@@ -64,7 +64,32 @@ const reducer = (state = initialState, action) => {
                 isError: true
             }
 
+        case types.UPDATE_CART_REQUEST:
+            return {
+                ...state,
+                isLoading: true,
+                isError: false,
+            };
+        case types.UPDATE_CART_SUCCESS:
+            return {
+                ...state,
+                isLoading: false,
+                isError: false,
+                cart: state.cart.map((cart) => {
+                    if (cart.id === payload.id) {
+                        cart.quantity = payload.quantity;
+                        return cart;
+                    }
+                    return cart;
+                })
+            };
 
+        case types.UPDATE_CART_FAILURE:
+            return {
+                ...state,
+                isLoading: false,
+                isError: true,
+            };
         case types.REMOVE_FROM_CART_REQUEST:
             return {
                 ...state,
@@ -88,7 +113,7 @@ const reducer = (state = initialState, action) => {
 
         case types.ADD_PRODUCTS_QUANTITY:
             const { id, quantity } = payload
-            console.log({ id, quantity })
+            // console.log({ id, quantity })
             const newPatchData = state.ChickenData.map((el) => el.id === id ? { ...el, quantity } : el)
             return {
                 ...state,

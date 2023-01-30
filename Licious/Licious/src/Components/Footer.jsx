@@ -19,13 +19,15 @@ import { HomePageSlider2 } from "./HomePageSlider2";
 const Footer = () => {
   return (
     <Box>
-    <Box w="35%" p="30px" border="0px solid red" >
-      <Text color="" fontSize="35px" ml='-100px'fontWeight="bold" >In the News</Text>
-    </Box>
-          <HomePageSlider2 />
+      <Box w="35%" p="30px" border="0px solid red">
+        <Text color="" fontSize="35px" ml="-100px" fontWeight="bold">
+          In the News
+        </Text>
+      </Box>
+      <HomePageSlider2 />
 
-      <Box w="33%"  mt="10px">
-        <Image h="60px" w="95%"  src="/Image/HomePart22/licious-logo.svg" />
+      <Box w="33%" mt="10px">
+        <Image h="60px" w="95%" src="/Image/HomePart22/licious-logo.svg" />
       </Box>
       <Box w="78%" m="auto" display="flex">
         <Box
@@ -537,7 +539,7 @@ const Footer = () => {
           </Text>
         </HStack>
         <HStack>
-          <Text textAlign="justify" >
+          <Text textAlign="justify">
             Doesn’t everyone do this? Not really. Most other places first weigh
             the meat, then cut up the pieces, and throw out the parts which
             aren’t fit to eat, such as offal, gizzard, wingtips, etc. But you
@@ -547,7 +549,12 @@ const Footer = () => {
         </HStack>
         <Divider h="0.5px" bg="grey" w="100%" />
 
-        <Text color="#4a4a4a" fontWeight="bold" justifyContent="center" fontSize="16px">
+        <Text
+          color="#4a4a4a"
+          fontWeight="bold"
+          justifyContent="center"
+          fontSize="16px"
+        >
           {" "}
           @ 2022 Delightful Gourmet Pvt Ltd. All Rights Reserved.
         </Text>

@@ -65,7 +65,7 @@ const Signup = () => {
     navigate("/");
   };
   const handleChange = (e) => {
-    console.log(1);
+    //console.log(1);
     const { name, value } = e.target;
     setData({ ...data, [name]: value });
   };
