@@ -10,64 +10,28 @@ import {
   useNumberInput,
   Flex,
   useToast,
+  NumberInputField,
+  NumberInputStepper,
+  NumberIncrementStepper,
+  NumberInput,
+  NumberDecrementStepper,
 } from "@chakra-ui/react";
 import { useDispatch } from "react-redux";
-import { getCart, removeProductFromCart } from "../Redux/action";
+import {
+  getCart,
+  removeProductFromCart,
+  updateProductInCart,
+} from "../Redux/action";
 import { useEffect } from "react";
 import { CheckCircleIcon } from "@chakra-ui/icons";
 
-function HookUsage({ quantity }) {
-  const { getInputProps, getIncrementButtonProps, getDecrementButtonProps } =
-    useNumberInput({
-      step: 1,
-      defaultValue: 1,
-      min: 1,
-      max: 3,
-    });
-
-  const inc = getIncrementButtonProps();
-  const dec = getDecrementButtonProps();
-  const input = getInputProps({ quantity });
-
-  return (
-    <HStack>
-      <Button
-        bg="#f2f2f2"
-        border="0px solid #f2f2f2"
-        color="#D11243"
-        fontWeight="bold"
-        w="22px"
-        h="22px"
-        {...dec}
-      >
-        -
-      </Button>
-      <Input
-        w="45px"
-        fontWeight="bold"
-        h="30px"
-        border="none"
-        {...input}
-        disabled
-      />
-      <Button
-        bg="#f2f2f2"
-        border="0px solid #f2f2f2"
-        color="#D11243"
-        w="22px"
-        h="22px"
-        fontWeight="bold"
-        {...inc}
-      >
-        +
-      </Button>
-    </HStack>
-  );
-}
 export const SingleItem = ({ Name, quantity, Weight, Price, id, arrange }) => {
   const dispatch = useDispatch();
   const toast = useToast();
-  //console.log(Weight);
+  //console.log(quantity);
+  const handleQuantity = (id, qty) => {
+    dispatch(updateProductInCart(id, qty));
+  };
   const handleRemoveCartitem = ({ id }) => {
     //console.log(id);
     dispatch(removeProductFromCart(id))
@@ -148,12 +112,33 @@ export const SingleItem = ({ Name, quantity, Weight, Price, id, arrange }) => {
               >
                 {Weight}
               </Box>
-              <Box color="#D11243" fontSize="13px" fontWeight={"bold"}>
+              <Box color="#D11243" fontSize="18px" fontWeight={"bold"}>
                 ₹{Price}
               </Box>
             </Box>
             <Box>
-              <HookUsage quantity={quantity} />
+              {/* <HookUsage quantity={quantity} id={id} /> */}
+              <Box>
+                <Flex>
+                  <Box>Qty :</Box>
+                  <Box ml="2">
+                    <NumberInput
+                      size="sm"
+                      maxW={24}
+                      defaultValue={quantity}
+                      max={5}
+                      min={1}
+                      onChange={(value) => handleQuantity(id, value)}
+                    >
+                      <NumberInputField />
+                      <NumberInputStepper>
+                        <NumberIncrementStepper />
+                        <NumberDecrementStepper />
+                      </NumberInputStepper>
+                    </NumberInput>
+                  </Box>
+                </Flex>
+              </Box>
             </Box>
           </Box>
         </Box>

@@ -61,7 +61,7 @@ const Map = () => {
                   }
                 setCity(bag1);
                 setAcity(bag2);
-                console.log(city, acity);
+                //  console.log(city, acity);
               }
             }}
           />

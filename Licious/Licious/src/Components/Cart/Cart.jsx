@@ -43,24 +43,26 @@ const bill_breakup = {
 function Cart() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
-
-  const [SubTotal, setSubTotal] = useState(0);
-  const [total, settotal] = useState(0);
   const Data = useSelector((store) => store.reducer.cart);
   const dispatch = useDispatch();
 
   //console.log("CARTTT===>", Data);
+  let sum = 0;
+  let ans = [];
+  if (Data.length > 0) {
+    ans = Data.map((each) => each.Price * each.quantity);
+    ans.forEach((item) => {
+      sum += item;
+    });
+  }
+
+  const totalvalue = sum + 200 - 100;
+  //console.log(totalvalue);
   useEffect(() => {
     dispatch(getCart());
-    if (Data.length > 0) {
-      const sub = Data.reduce((acc, el) => {
-        return acc + el.Price;
-      }, 0);
-      setSubTotal(sub);
-
-      settotal(sub + 200);
-    }
-  }, [dispatch, Data.length]);
+    // setSubTotal(value);
+    // settotal(value + 200);
+  }, [Data.length, dispatch]);
   return (
     <>
       <Box>
@@ -101,7 +103,7 @@ function Cart() {
             </Box>
             <Box h="36px" bg="green" ml="-20px" mr="-20px" color="white">
               <Text fontSize="13px" textAlign="center" pt="8px">
-                ₹200 delivery charge applies
+                ₹{Data.length ? 50 : 0} delivery charge applies
               </Text>
             </Box>
             <br />
@@ -147,7 +149,7 @@ function Cart() {
                 >
                   Subtotal{" "}
                   <Box className="message">
-                    <span>{SubTotal}</span>
+                    <span>₹{sum}</span>
                   </Box>
                 </li>
                 <li
@@ -160,7 +162,7 @@ function Cart() {
                 >
                   Delivery Charge{" "}
                   <Box className="message">
-                    <span> ₹200</span>
+                    <span>₹{Data.length > 0 ? 50 : 0}</span>
                   </Box>
                 </li>
                 <li
@@ -173,7 +175,7 @@ function Cart() {
                 >
                   Discount{" "}
                   <Box className="message">
-                    <span>0</span>
+                    <span>₹{Data.length > 0 ? 100 : 0}</span>
                   </Box>
                 </li>
                 <Divider />
@@ -187,7 +189,7 @@ function Cart() {
                 >
                   Total
                   <Box className="message">
-                    <span>{total}</span>
+                    <span>₹{Data.length > 0 ? totalvalue : 0}</span>
                   </Box>
                 </li>
               </ul>
@@ -201,7 +203,7 @@ function Cart() {
                 fontSize="14px"
                 fontWeight="bold"
               >
-                Total : ₹ {total}
+                Total : ₹ {Data.length > 0 ? totalvalue : 0}
               </Box>
               <Spacer />
 
@@ -214,6 +216,7 @@ function Cart() {
                   variant="solid"
                   color="white"
                   _hover={{ bg: "#e4003e" }}
+                  onClick={onClose}
                 >
                   Proceed to checkout
                 </Button>

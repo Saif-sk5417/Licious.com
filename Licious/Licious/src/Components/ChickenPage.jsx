@@ -1,4 +1,12 @@
-import { Box, Button, ChakraProvider, Flex } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  ChakraProvider,
+  Flex,
+  Heading,
+  Stack,
+  Text,
+} from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { BsTypeH1 } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,23 +19,25 @@ import styles from "./SingleCard.module.css";
 
 const ChickenPage = () => {
   const dispatch = useDispatch();
-  const ChickenData = useSelector((store) => store.reducer.ChickenData);
-  const quantity = useSelector((store) => store);
+  const { isLoading, ChickenData } = useSelector((store) => store.reducer);
+  const search = useLocation().search;
+  console.log(isLoading);
 
   const [searchParams, setSearchParams] = useSearchParams();
-  const search = useLocation().search;
   const query = new URLSearchParams(search).get("category");
-  let [page, setPage] = useState(1);
 
-  const storeReoladParam = searchParams.getAll("sub_category");
-
-  const [categ, setCateg] = useState(storeReoladParam || []);
+  const storedReoladParam = searchParams.getAll("sub_category");
+  //console.log(storeReoladParam);
+  const storedReloadPage = searchParams.getAll("_page");
+  //console.log(storedReloadPage);
+  const [page, setPage] = useState(1);
+  const [categ, setCateg] = useState(storedReoladParam || []);
   const [sort, setSort] = useState("");
   const [orderBy, setOrderBy] = useState("");
   const [prevQuery, setPrevQuery] = useState(query);
 
   const handleFilterCheckbox = (e) => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     const newCategoryList = [...categ];
 
     if (newCategoryList.includes(e.target.value)) {
@@ -42,20 +52,12 @@ const ChickenPage = () => {
   useEffect(() => {
     let params = {};
     params.sub_category = categ;
-    console.log(params);
-    setSearchParams(params);
-  }, [categ, setSearchParams]);
+    params._limit = 12;
+    page && (params._page = page);
 
-  let length;
-  if (query === "") {
-    length = 72;
-  } else if (query === "Cleaned") {
-    length = 2;
-  } else if (query === "Boneless") {
-    length = 5;
-  } else if (query === "Curry Cut") {
-    length = 4;
-  }
+    setSearchParams(params);
+  }, [categ, setSearchParams, page]);
+
   const hadleSort = (order) => {
     if (order === "Ascending") {
       setOrderBy("asc");
@@ -75,19 +77,18 @@ const ChickenPage = () => {
     }
   };
   useEffect(() => {
-    if (prevQuery !== query) {
-      setPage(1);
-    }
     const filterParams = {
       params: {
         sub_category: searchParams.getAll("sub_category"),
+        _page: searchParams.getAll("_page"),
+        _limit: searchParams.getAll("_limit"),
       },
     };
 
     // console.log("inside useeffect", filterParams);
     //Sub_category: query, page: page,
     dispatch(getChickenData(filterParams, { sort, orderBy }));
-    dispatch(getCart());
+    // dispatch(getCart());
     setPrevQuery(query);
   }, [dispatch, sort, orderBy, location.search]);
   //console.log(orderBy);
@@ -183,6 +184,7 @@ const ChickenPage = () => {
             </select>
           </div>
         </div>
+
         <div className={styles.SingleCard_Main}>
           {ChickenData.map((el) => (
             <ChakraProvider key={el.id}>
@@ -200,26 +202,41 @@ const ChickenPage = () => {
           ))}
         </div>
       </div>
+      {!isLoading && ChickenData.length === 0 && (
+        <div>
+          <ChakraProvider>
+            <Box mb="100px">
+              <Heading size="lg" fontSize="50px">
+                Product Limit reached go back to previous page
+              </Heading>
+            </Box>
+          </ChakraProvider>
+        </div>
+      )}
       <div>
-        <Flex justifyContent="center" gap="30px" marginTop="30px">
-          <Button
-            disabled={page === 1}
-            onClick={() => setPage(page - 1)}
-            colorScheme=" rgb(219, 222, 16);"
-            color="black"
-          >
-            Prev
-          </Button>
-          <Button colorScheme=" rgb(219, 222, 16);">{page}</Button>
-          <Button
-            colorScheme=" rgb(219, 222, 16);"
-            color="black"
-            disabled={page === Math.ceil(length / 20)}
-            onClick={() => setPage(page + 1)}
-          >
-            Next
-          </Button>
-        </Flex>
+        <ChakraProvider>
+          <Flex justifyContent="center" gap="30px" marginTop="30px">
+            <Button
+              disabled={page === 1}
+              onClick={() => setPage(page - 1)}
+              bg="#e53e3e"
+              color="white"
+            >
+              Prev
+            </Button>
+            <Button color="white" bg="#e53e3e">
+              {page}
+            </Button>
+            <Button
+              bg="#e53e3e"
+              color="white"
+              disabled={ChickenData.length === 0}
+              onClick={() => setPage(page + 1)}
+            >
+              Next
+            </Button>
+          </Flex>
+        </ChakraProvider>
       </div>
     </div>
   );

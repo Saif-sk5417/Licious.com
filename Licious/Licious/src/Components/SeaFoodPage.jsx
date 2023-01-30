@@ -12,7 +12,7 @@ const SeaFood = () => {
   const SeaFoodData = useSelector((store) => store.SeaFoodData);
   useEffect(() => {
     dispatch(getSeaFoodData());
-    console.log(SeaFoodData);
+    // console.log(SeaFoodData);
   }, []);
   return (
     <div style={{ marginTop: "200px" }}>

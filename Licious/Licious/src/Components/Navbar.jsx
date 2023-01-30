@@ -44,6 +44,8 @@ const Navbar = () => {
   // background-color: #fff;
   const isAuth = useSelector((store) => store.authManager.isAuth);
   const userName = useSelector((store) => store.authManager.userdata.username);
+  const cartTotal = useSelector((store) => store.reducer.cart);
+
   const dispatch = useDispatch();
   const toast = useToast();
   const navigate = useNavigate();
@@ -88,13 +90,7 @@ const Navbar = () => {
   // padding: 25px 0;
   // height: 80px;
   return (
-    <Box
-      position={"fixed"}
-      zIndex="2"
-      w={["100%", "100%", "100%"]}
-      bg={"#fff"}
-      top="0"
-    >
+    <Box position={"fixed"} zIndex="2" w={"100%"} bg={"#fff"} top="0">
       <Box h="25px" bg={"#EAEAEA"}>
         <Box
           w="75%"
@@ -198,14 +194,14 @@ const Navbar = () => {
           justifyContent={"space-between"}
         >
           <Link to="/">
-            <Box>
+            <Box w="92px">
               <Image src="/Image/Navbar/licious-logo.svg" />
             </Box>
           </Link>
 
-          <Box
+          <Flex
+            gap="50px"
             p="10px 0 0 0"
-            display={"flex"}
             alignItems="center"
             justifyContent={"space-around"}
           >
@@ -226,8 +222,8 @@ const Navbar = () => {
               mt="5%"
               h="7px"
             ></Image>
-          </Box>
-          <Box mr="-20px" ml="-20px">
+          </Flex>
+          <Box>
             <Searchbar />
           </Box>
           <Box
@@ -258,7 +254,22 @@ const Navbar = () => {
             justifyContent={"space-between"}
           >
             <ChakraProvider>
-              <Cart />
+              <Flex>
+                <Cart />
+                <Box
+                  fontSize="bold"
+                  bg="tomato"
+                  color={"white"}
+                  w="20px"
+                  h="20px"
+                  borderRadius={"100%"}
+                  display={"flex"}
+                  alignItems="center"
+                  justifyContent={"center"}
+                >
+                  {cartTotal.length}
+                </Box>
+              </Flex>
             </ChakraProvider>
           </Box>
         </Box>

@@ -5,7 +5,7 @@ import axios from 'axios'
 export const getChickenData = (params, query) => async (dispatch) => {
 
 
-  console.log("Deepak", query)
+  //console.log("Deepak", params)
   try {
     dispatch({ type: types.GET_CHICKEN_REQUEST })
 
@@ -25,12 +25,12 @@ export const getChickenData = (params, query) => async (dispatch) => {
         q += `${key}=${query}&`;
       }
     }
-    console.log(q)
+    //console.log(q)
 
     const res = await axios.get(`https://urldata-thedpmane.vercel.app/Chicken?${q}`, params);
 
     dispatch({ type: types.GET_CHICKEN_SUCCESS, payload: res.data })
-    console.log(res)
+    //console.log(res)
   } catch (error) {
 
     dispatch({ type: types.GET_CHICKEN_FAILURE })
@@ -38,18 +38,31 @@ export const getChickenData = (params, query) => async (dispatch) => {
 };
 
 
-// export const AddProductQuantity = (id, quantity) => (dispatch) => {
-//   axios
-//     .patch(`https://urldata-thedpmane.vercel.app/Chicken/${id}`, {
-//       quantity: quantity + 1
-//     })
-//     .then((res) => {
-//       dispatch({
-//         type: types.ADD_PRODUCTS_QUANTITY,
-//         payload: res.data
-//       })
-//     })
-// }
+
+
+
+export const updateProductInCart = (id, quantity) => async (dispatch) => {
+  //console.log(id, quantity)
+  try {
+    dispatch({ type: types.UPDATE_CART_REQUEST });
+    dispatch({
+      type: types.UPDATE_CART_SUCCESS,
+      payload: {
+        quantity,
+        id
+      },
+    });
+
+    axios.patch(`https://urldata-thedpmane.vercel.app/cart/${id}`, {
+      quantity: quantity
+    });
+  } catch (error) {
+    console.log(error)
+    dispatch({
+      type: types.UPDATE_CART_FAILURE
+    });
+  }
+};
 
 export const AddProductQuantity = (value) => async (dispatch) => {
 
@@ -65,7 +78,7 @@ export const AddProductQuantity = (value) => async (dispatch) => {
       },
     });
     const data = await res.json();
-    console.log(data)
+    //console.log(data)
   } catch (error) { console.log(error) }
 }
 

@@ -11,7 +11,7 @@ import Styles from "./SingleProductPage.module.css";
 const SingleProductPageBox = () => {
   const { id } = useParams();
   const ChickenData = useSelector((store) => store.reducer.ChickenData);
-  console.log(ChickenData);
+  //console.log(ChickenData);
   const [CurrentProduct, setCurrentProduct] = useState({});
   useEffect(() => {
     if (id) {
