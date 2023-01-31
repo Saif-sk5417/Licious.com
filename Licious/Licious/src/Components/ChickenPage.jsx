@@ -91,7 +91,7 @@ const ChickenPage = () => {
     dispatch(getChickenData(filterParams, { sort, orderBy }));
     // dispatch(getCart());
     setPrevQuery(query);
-  }, [dispatch, sort, orderBy, location.search]);
+  }, [dispatch, sort, orderBy]);
   //console.log(orderBy);
   return (
     <div style={{ marginTop: "150px" }}>
