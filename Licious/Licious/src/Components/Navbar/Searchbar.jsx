@@ -69,7 +69,7 @@ const Searchbar = () => {
       <Image
         onClick={ClickMe}
         _hover={{ cursor: "pointer" }}
-        src="./Image/Navbar/search_icon.svg"
+        src="https://www.licious.in/img/rebranding/search_icon.svg"
       />
     </Box>
   );

@@ -2,6 +2,7 @@ import { isAxiosError } from 'axios'
 import * as types from './actionTypes'
 const initialState = {
     isLoading: false,
+    carIsLoading: false,
     ChickenData: [],
     SeaFoodData: [],
     cart: [],
@@ -49,31 +50,31 @@ const reducer = (state = initialState, action) => {
         case types.GET_CART_REQUEST:
             return {
                 ...state,
-                isLoading: true
+                carIsLoading: true
             }
         case types.GET_CART_SUCCESS:
             return {
                 ...state,
-                isLoading: false,
+                carIsLoading: false,
                 cart: payload
             }
         case types.GET_CART_FAILURE:
             return {
                 ...state,
-                isLoading: false,
+                carIsLoading: false,
                 isError: true
             }
 
         case types.UPDATE_CART_REQUEST:
             return {
                 ...state,
-                isLoading: true,
+                carIsLoading: true,
                 isError: false,
             };
         case types.UPDATE_CART_SUCCESS:
             return {
                 ...state,
-                isLoading: false,
+                carIsLoading: false,
                 isError: false,
                 cart: state.cart.map((cart) => {
                     if (cart.id === payload.id) {
@@ -87,19 +88,19 @@ const reducer = (state = initialState, action) => {
         case types.UPDATE_CART_FAILURE:
             return {
                 ...state,
-                isLoading: false,
+                carIsLoading: false,
                 isError: true,
             };
         case types.REMOVE_FROM_CART_REQUEST:
             return {
                 ...state,
-                isLoading: true,
+                carIsLoading: true,
                 isError: false,
             };
         case types.REMOVE_FROM_CART_SUCCESS:
             return {
                 ...state,
-                isLoading: false,
+                carIsLoading: false,
                 isError: false,
                 cart: state.cart.filter((cart) => cart._id !== payload.id),
 
@@ -107,7 +108,7 @@ const reducer = (state = initialState, action) => {
         case types.REMOVE_FROM_CART_FAILURE:
             return {
                 ...state,
-                isLoading: false,
+                carIsLoading: false,
                 isError: true,
             };
 

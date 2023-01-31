@@ -258,10 +258,10 @@ const Navbar = () => {
                 <Cart />
                 <Box
                   fontSize="bold"
-                  bg="tomato"
+                  bg="#e53e3e"
                   color={"white"}
-                  w="20px"
-                  h="20px"
+                  w="23px"
+                  h="23px"
                   borderRadius={"100%"}
                   display={"flex"}
                   alignItems="center"

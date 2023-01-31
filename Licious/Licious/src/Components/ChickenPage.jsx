@@ -4,6 +4,7 @@ import {
   ChakraProvider,
   Flex,
   Heading,
+  Image,
   Stack,
   Text,
 } from "@chakra-ui/react";
@@ -16,7 +17,7 @@ import { chickenItem } from "./Navbar/Categories/dataCom";
 import { getCart, getChickenData } from "./Redux/action";
 import { SingleCard } from "./SingleCard";
 import styles from "./SingleCard.module.css";
-
+import SkeletonCard from "./Skelton";
 const ChickenPage = () => {
   const dispatch = useDispatch();
   const { isLoading, ChickenData } = useSelector((store) => store.reducer);
@@ -35,7 +36,7 @@ const ChickenPage = () => {
   const [sort, setSort] = useState("");
   const [orderBy, setOrderBy] = useState("");
   const [prevQuery, setPrevQuery] = useState(query);
-
+  const arr = new Array(12).fill(0);
   const handleFilterCheckbox = (e) => {
     // console.log(e.target.value);
     const newCategoryList = [...categ];
@@ -186,20 +187,26 @@ const ChickenPage = () => {
         </div>
 
         <div className={styles.SingleCard_Main}>
-          {ChickenData.map((el) => (
-            <ChakraProvider key={el.id}>
-              <SingleCard
-                key={el.id}
-                id={el.id}
-                Name={el.Name}
-                image={el.Image}
-                des_1={el.des_1}
-                weights={el.Weight}
-                Price={el.Price}
-                quantity={el.quantity}
-              />
-            </ChakraProvider>
-          ))}
+          {isLoading
+            ? arr.map(() => (
+                <ChakraProvider>
+                  <SkeletonCard />
+                </ChakraProvider>
+              ))
+            : ChickenData.map((el) => (
+                <ChakraProvider key={el.id}>
+                  <SingleCard
+                    key={el.id}
+                    id={el.id}
+                    Name={el.Name}
+                    image={el.Image}
+                    des_1={el.des_1}
+                    weights={el.Weight}
+                    Price={el.Price}
+                    quantity={el.quantity}
+                  />
+                </ChakraProvider>
+              ))}
         </div>
       </div>
       {!isLoading && ChickenData.length === 0 && (

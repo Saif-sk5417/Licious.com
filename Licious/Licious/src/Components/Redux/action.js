@@ -135,7 +135,7 @@ export const removeProductFromCart = (id) => async (dispatch) => {
 export const getSeaFoodData = (category) => (dispatch) => {
   dispatch({ type: types.GET_SEAFOOD_REQUEST })
   axios
-    .get('http://localhost:8080/SeaFood')
+    .get('https://urldata-thedpmane.vercel.app/SeaFood')
     .then((res) => dispatch({ type: types.GET_SEAFOOD_SUCCESS, payload: res.data }))
     .catch((e) => dispatch({ type: types.GET_SEAFOOD_FAILURE }))
 }

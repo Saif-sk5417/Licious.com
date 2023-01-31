@@ -2,7 +2,7 @@
 
 .SingleProductPage_Main{
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    height: 500px;
+   
     width: 90%;
     margin: auto;
     margin-top: 80px ;
@@ -31,22 +31,7 @@
 .SingleProductPage_Box22{
     text-align:left;
 }
-.SingleProductPage_Box22 h1{
-     font-size: 30px;
-     font-weight: 500;
-}
-.SingleProductPage_Box22 h2{
-    font-size: 20px;
-    font-weight: 400;
-    color: rgb(118, 116, 116);
-}
-.SingleProductPage_Box22_Price{
-    font-size: 30px;
-    width: 30%;
-    text-align: left;
-    margin-top: 15px;
-    color: rgb(245, 9, 9);
-}
+
 .SingleProductPage_Box22_des{
   line-height: 22px;
   font-weight: 400;
@@ -54,10 +39,4 @@
   text-align:justify ;
   margin-top: 30px;
   margin-left: -3px;
-}
-
-.SingleProductPage_Box22_AddToCART{
-    font-size: 20px;
-    padding: 10px 5px;
-    
 }
