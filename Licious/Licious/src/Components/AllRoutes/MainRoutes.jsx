@@ -28,7 +28,7 @@ const MainRoutes = () => {
         }
       />
 
-      <Route path="/Payment" element={<PaymentPage />} />
+      {/* <Route path="/Payment" element={<PaymentPage />} /> */}
     </Routes>
   );
 };

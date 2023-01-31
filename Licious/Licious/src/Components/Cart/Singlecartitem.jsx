@@ -23,7 +23,7 @@ import {
   updateProductInCart,
 } from "../Redux/action";
 import { useEffect } from "react";
-import { CheckCircleIcon } from "@chakra-ui/icons";
+import { WarningIcon } from "@chakra-ui/icons";
 
 export const SingleItem = ({ Name, quantity, Weight, Price, id, arrange }) => {
   const dispatch = useDispatch();
@@ -44,9 +44,9 @@ export const SingleItem = ({ Name, quantity, Weight, Price, id, arrange }) => {
               color="white"
               border="4px solid white"
               p={"10px"}
-              bgColor="green.400"
+              bgColor="#dd6b20"
             >
-              <CheckCircleIcon w={30} h={30} />
+              <WarningIcon w={30} h={30} />
               <Text size="lg" ml="15px">
                 Item removed from Cart
               </Text>
