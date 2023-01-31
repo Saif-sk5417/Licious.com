@@ -92,7 +92,7 @@ const ChickenPage = () => {
     // dispatch(getCart());
     setPrevQuery(query);
   }, [dispatch, sort, orderBy]);
-  //console.log(orderBy);
+
   return (
     <div style={{ marginTop: "150px" }}>
       <div className={styles.SingleCard_radio_Box}>
