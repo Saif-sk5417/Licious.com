@@ -91,8 +91,8 @@ const ChickenPage = () => {
     dispatch(getChickenData(filterParams, { sort, orderBy }));
     // dispatch(getCart());
     setPrevQuery(query);
-  }, [dispatch, sort, orderBy, location.search]);
-  //console.log(orderBy);
+  }, [dispatch, sort, orderBy]);
+
   return (
     <div style={{ marginTop: "150px" }}>
       <div className={styles.SingleCard_radio_Box}>

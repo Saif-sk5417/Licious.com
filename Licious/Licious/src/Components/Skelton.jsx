@@ -18,7 +18,6 @@ export default function SkeletonCard() {
   return (
     <Card
       maxW="sm"
-      key={""}
       borderRadius="0px 0px 15px 15px"
       boxShadow={"rgba(0, 0, 0, 0.1) 0px 10px 50px"}
     >
