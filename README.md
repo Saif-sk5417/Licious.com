@@ -1,5 +1,5 @@
 
-<h1 align="center">PistonService.com</h1>
+<h1 align="center">Licious.com</h1>
 
 <h3 align="center">It's a MERN Stack E-commerce web application with all the major functionalities</h3>
 
@@ -81,7 +81,7 @@ its Fully Responsive e-commerce web application that allows you to buy food onli
 
 <br />
 
-## Glimpses of PistonService.com 🙈 :
+## Glimpses of Licious.com 🙈 :
 ## Some Pages of Our Website 
 <img src="https://thedpmane.github.io/static/media/Licious.1321972b52b3e312bcf9.png" alt='mainimg'/>
 
